@@ -171,12 +171,10 @@
 		13BAFE4A18025BF800DB68FA /* WeatherPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				13BAFEB81802B58500DB68FA /* Controllers */,
+				13BAFEB71802B56900DB68FA /* Model */,
 				13BAFE881802796000DB68FA /* Fonts */,
 				13BAFE7D18026C7200DB68FA /* Images */,
-				13BAFE7A18025F5400DB68FA /* WeatherModel.h */,
-				13BAFE7B18025F5400DB68FA /* WeatherModel.m */,
-				13BAFE7718025F1600DB68FA /* WeatherViewController.h */,
-				13BAFE7818025F1600DB68FA /* WeatherViewController.m */,
 				13BAFE5318025BF800DB68FA /* AppDelegate.h */,
 				13BAFE5418025BF800DB68FA /* AppDelegate.m */,
 				13BAFE5918025BF800DB68FA /* Images.xcassets */,
@@ -261,6 +259,24 @@
 				13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */,
 			);
 			path = weatherImage;
+			sourceTree = "<group>";
+		};
+		13BAFEB71802B56900DB68FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13BAFE7A18025F5400DB68FA /* WeatherModel.h */,
+				13BAFE7B18025F5400DB68FA /* WeatherModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		13BAFEB81802B58500DB68FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13BAFE7718025F1600DB68FA /* WeatherViewController.h */,
+				13BAFE7818025F1600DB68FA /* WeatherViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
