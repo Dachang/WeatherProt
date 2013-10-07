@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum WeaponType
+{
+    Clear = 0,
+    Cloudy,
+    Overcast,
+    LightRain,
+    MidRain,
+    HeavyRain,
+    LightSnowy,
+    MidSnowy,
+    HeavySnowy,
+    Windy,
+}WeatherType;
+
 @interface WeatherModel : NSObject
 {
     NSInteger _currentTemperature;
@@ -18,12 +32,12 @@
     NSString *_date;
     NSString *_condition;
     NSString *_percip;
-    NSString *_weather;
+    WeatherType _weather;
 }
 
-- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(NSString*)weather;
+- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(WeatherType)weather;
 
-+ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(NSString*)weather;
++ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(WeatherType)weather;
 
 - (NSInteger)getCurrentTemp;
 - (NSInteger)getHighTemp;
@@ -33,6 +47,6 @@
 - (NSString*)getDate;
 - (NSString*)getCondition;
 - (NSString*)getPercip;
-- (NSString*)getWeather;
+- (WeatherType)getWeather;
 
 @end

@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.weather = [WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:@"sunny"];
+        self.weather = [WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear];
     }
     return self;
 }
@@ -68,7 +68,10 @@
     self.location.font = [UIFont fontWithName:@"Roboto-Condensed" size:13];
     [self.view addSubview:self.location];
     //weather image
-    //add
+    self.weatherImage = [[UIImageView alloc] init];
+    self.weatherImage.image = [self setupWeatherImageWithWeather:Clear];
+    self.weatherImage.frame = CGRectMake(15, 280, 65, 65);
+    [self.view addSubview:self.weatherImage];
     //date
     self.date = [[UILabel alloc] init];
     self.date.text = [NSString stringWithFormat:@"%@", [self.weather getDate]];
@@ -119,9 +122,18 @@
 }
 
 #pragma mark - Setup Weather Image
-- (UIImage*)setupWeatherImageWithWeather:(NSString*)weather
+- (UIImage*)setupWeatherImageWithWeather:(WeatherType)weather
 {
     UIImage *weatherImage = [[UIImage alloc] init];
+    
+    switch (weather) {
+        case Clear:
+            return [UIImage imageNamed:@"Sunny"];
+            break;
+        //add
+        default:
+            break;
+    }
     return weatherImage;
 }
 
