@@ -17,8 +17,7 @@
 @property (strong, nonatomic) UIImageView *gardientBackgroundImage;
 
 @property (strong, nonatomic) UILabel *currentTemperature;
-@property (strong, nonatomic) UILabel *highTemperature;
-@property (strong, nonatomic) UILabel *lowTemperature;
+@property (strong, nonatomic) UILabel *highLowTemperature;
 @property (strong, nonatomic) UILabel *location;
 @property (strong, nonatomic) UILabel *week;
 @property (strong, nonatomic) UILabel *date;
@@ -27,5 +26,9 @@
 
 @property (strong, nonatomic) UIImageView *weatherImage;
 @property (strong, nonatomic) UIImageView *LocationIndicator;
+@property (strong, nonatomic) UIImageView *tempUnitImage;
+@property (strong, nonatomic) UIImageView *highLowImage;
+@property (strong, nonatomic) UIImageView *conditionImage;
+@property (strong, nonatomic) UIImageView *percipImage;
 
 @end

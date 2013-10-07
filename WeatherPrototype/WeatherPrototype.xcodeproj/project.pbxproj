@@ -43,6 +43,12 @@
 		13BAFEA61802796000DB68FA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE961802796000DB68FA /* Roboto-Regular.ttf */; };
 		13BAFEA71802796000DB68FA /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE971802796000DB68FA /* Roboto-Thin.ttf */; };
 		13BAFEA81802796000DB68FA /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE981802796000DB68FA /* Roboto-ThinItalic.ttf */; };
+		13BAFEAB1802997900DB68FA /* calculus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEAA1802997900DB68FA /* calculus@2x.png */; };
+		13BAFEAD18029F0A00DB68FA /* locationInd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEAC18029F0A00DB68FA /* locationInd@2x.png */; };
+		13BAFEAF1802A59C00DB68FA /* highLow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEAE1802A59C00DB68FA /* highLow@2x.png */; };
+		13BAFEB21802A9A200DB68FA /* percip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB01802A9A200DB68FA /* percip@2x.png */; };
+		13BAFEB31802A9A200DB68FA /* condition@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB11802A9A200DB68FA /* condition@2x.png */; };
+		13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +103,12 @@
 		13BAFE961802796000DB68FA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		13BAFE971802796000DB68FA /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		13BAFE981802796000DB68FA /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		13BAFEAA1802997900DB68FA /* calculus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calculus@2x.png"; sourceTree = "<group>"; };
+		13BAFEAC18029F0A00DB68FA /* locationInd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locationInd@2x.png"; sourceTree = "<group>"; };
+		13BAFEAE1802A59C00DB68FA /* highLow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highLow@2x.png"; sourceTree = "<group>"; };
+		13BAFEB01802A9A200DB68FA /* percip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "percip@2x.png"; sourceTree = "<group>"; };
+		13BAFEB11802A9A200DB68FA /* condition@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "condition@2x.png"; sourceTree = "<group>"; };
+		13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sunny@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +218,12 @@
 		13BAFE7D18026C7200DB68FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				13BAFEB41802AB8E00DB68FA /* weatherImage */,
+				13BAFEB01802A9A200DB68FA /* percip@2x.png */,
+				13BAFEB11802A9A200DB68FA /* condition@2x.png */,
+				13BAFEAE1802A59C00DB68FA /* highLow@2x.png */,
+				13BAFEAC18029F0A00DB68FA /* locationInd@2x.png */,
+				13BAFEAA1802997900DB68FA /* calculus@2x.png */,
 				13BAFE861802740100DB68FA /* gardientBG@2x.png */,
 				13BAFE841802724E00DB68FA /* dashboardBG@2x.png */,
 				13BAFE821802706C00DB68FA /* bg@2x.png */,
@@ -235,6 +253,14 @@
 			);
 			name = Fonts;
 			path = ../Fonts;
+			sourceTree = "<group>";
+		};
+		13BAFEB41802AB8E00DB68FA /* weatherImage */ = {
+			isa = PBXGroup;
+			children = (
+				13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */,
+			);
+			path = weatherImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +307,7 @@
 		13BAFE3718025BF800DB68FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "大畅";
 				TargetAttributes = {
@@ -312,18 +339,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BAFEAB1802997900DB68FA /* calculus@2x.png in Resources */,
 				13BAFE851802724E00DB68FA /* dashboardBG@2x.png in Resources */,
+				13BAFEAD18029F0A00DB68FA /* locationInd@2x.png in Resources */,
 				13BAFE9E1802796000DB68FA /* Roboto-BoldItalic.ttf in Resources */,
 				13BAFEA31802796000DB68FA /* Roboto-LightItalic.ttf in Resources */,
 				13BAFEA81802796000DB68FA /* Roboto-ThinItalic.ttf in Resources */,
+				13BAFEB21802A9A200DB68FA /* percip@2x.png in Resources */,
 				13BAFEA41802796000DB68FA /* Roboto-Medium.ttf in Resources */,
 				13BAFEA21802796000DB68FA /* Roboto-Light.ttf in Resources */,
 				13BAFE831802706C00DB68FA /* bg@2x.png in Resources */,
+				13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */,
 				13BAFE871802740100DB68FA /* gardientBG@2x.png in Resources */,
 				13BAFE9A1802796000DB68FA /* Roboto-BlackItalic.ttf in Resources */,
 				13BAFEA71802796000DB68FA /* Roboto-Thin.ttf in Resources */,
 				13BAFE9F1802796000DB68FA /* Roboto-Condensed.ttf in Resources */,
+				13BAFEAF1802A59C00DB68FA /* highLow@2x.png in Resources */,
 				13BAFE4F18025BF800DB68FA /* InfoPlist.strings in Resources */,
+				13BAFEB31802A9A200DB68FA /* condition@2x.png in Resources */,
 				13BAFEA01802796000DB68FA /* Roboto-CondensedItalic.ttf in Resources */,
 				13BAFE5A18025BF800DB68FA /* Images.xcassets in Resources */,
 				13BAFE9B1802796000DB68FA /* Roboto-Bold.ttf in Resources */,
