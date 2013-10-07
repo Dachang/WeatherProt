@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
 	[self setupBackgroundImage];
+    [self setupWeatherInfo];
 }
 
 - (void)setupBackgroundImage
@@ -40,6 +41,16 @@
     self.gardientBackgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gardientBG"]];
     self.gardientBackgroundImage.frame = CGRectMake(0, self.view.bounds.size.height - self.dashboardBackgroundImage.bounds.size.height - self.gardientBackgroundImage.bounds.size.height + 1, self.gardientBackgroundImage.bounds.size.width, self.gardientBackgroundImage.bounds.size.height);
     [self.view addSubview:self.gardientBackgroundImage];
+}
+
+- (void)setupWeatherInfo
+{
+    self.currentTemperature = [[UILabel alloc] init];
+    self.currentTemperature.text =[NSString stringWithFormat:@"%d", [self.weather getCurrentTemp]];
+    self.currentTemperature.frame = CGRectMake((self.view.bounds.size.width - 130)/2, 50, 130, 130);
+    self.currentTemperature.textColor = [UIColor whiteColor];
+    self.currentTemperature.font = [UIFont fontWithName:@"Roboto-Thin" size:68];
+    [self.view addSubview:self.currentTemperature];
 }
 
 - (void)didReceiveMemoryWarning
