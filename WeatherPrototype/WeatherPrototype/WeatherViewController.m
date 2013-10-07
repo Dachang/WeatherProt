@@ -119,6 +119,8 @@
     self.percip.alpha = 0.65;
     self.percip.font = [UIFont fontWithName:@"Roboto-Condensed" size:8.5];
     [self.view addSubview:self.percip];
+    
+    NSLog(@"My First commit");
 }
 
 #pragma mark - Setup Weather Image
