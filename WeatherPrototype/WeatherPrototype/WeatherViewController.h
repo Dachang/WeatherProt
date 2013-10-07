@@ -13,5 +13,19 @@
 
 @property (strong, nonatomic) WeatherModel *weather;
 @property (strong, nonatomic) UIImageView *backgroundImage;
+@property (strong, nonatomic) UIImageView *dashboardBackgroundImage;
+@property (strong, nonatomic) UIImageView *gardientBackgroundImage;
+
+@property (strong, nonatomic) UILabel *currentTemperature;
+@property (strong, nonatomic) UILabel *highTemperature;
+@property (strong, nonatomic) UILabel *lowTemperature;
+@property (strong, nonatomic) UILabel *location;
+@property (strong, nonatomic) UILabel *week;
+@property (strong, nonatomic) UILabel *date;
+@property (strong, nonatomic) UILabel *condition;
+@property (strong, nonatomic) UILabel *percip;
+
+@property (strong, nonatomic) UIImageView *weatherImage;
+@property (strong, nonatomic) UIImageView *LocationIndicator;
 
 @end

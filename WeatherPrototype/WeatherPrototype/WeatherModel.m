@@ -10,7 +10,7 @@
 
 @implementation WeatherModel
 
-- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip
+- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(NSString *)weather
 {
     if(self = [super init])
     {
@@ -22,13 +22,14 @@
         _date = date;
         _condition = condition;
         _percip = percip;
+        _weather = weather;
     }
     return self;
 }
 
-+ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip
++ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(NSString *)weather
 {
-    return [[WeatherModel alloc] initWithCurrentTemp:currentTemp highTemp:highTemp lowTemp:lowTemp location:location week:week date:date condition:condition percip:percip];
+    return [[WeatherModel alloc] initWithCurrentTemp:currentTemp highTemp:highTemp lowTemp:lowTemp location:location week:week date:date condition:condition percip:percip weather:weather];
 }
 
 - (NSInteger)getCurrentTemp { return _currentTemperature; }
@@ -46,5 +47,7 @@
 - (NSString*)getCondition { return _condition; }
 
 - (NSString*)getPercip { return _percip; }
+
+- (NSString*)getWeather { return _weather; }
 
 @end

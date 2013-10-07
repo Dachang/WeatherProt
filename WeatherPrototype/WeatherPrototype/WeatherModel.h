@@ -18,11 +18,12 @@
     NSString *_date;
     NSString *_condition;
     NSString *_percip;
+    NSString *_weather;
 }
 
-- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip;
+- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(NSString*)weather;
 
-+ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip;
++ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(NSString*)weather;
 
 - (NSInteger)getCurrentTemp;
 - (NSInteger)getHighTemp;
@@ -32,5 +33,6 @@
 - (NSString*)getDate;
 - (NSString*)getCondition;
 - (NSString*)getPercip;
+- (NSString*)getWeather;
 
 @end

@@ -24,6 +24,9 @@
 		13BAFE6E18025BF800DB68FA /* WeatherPrototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFE6D18025BF800DB68FA /* WeatherPrototypeTests.m */; };
 		13BAFE7918025F1600DB68FA /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFE7818025F1600DB68FA /* WeatherViewController.m */; };
 		13BAFE7C18025F5400DB68FA /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFE7B18025F5400DB68FA /* WeatherModel.m */; };
+		13BAFE831802706C00DB68FA /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE821802706C00DB68FA /* bg@2x.png */; };
+		13BAFE851802724E00DB68FA /* dashboardBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE841802724E00DB68FA /* dashboardBG@2x.png */; };
+		13BAFE871802740100DB68FA /* gardientBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFE861802740100DB68FA /* gardientBG@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		13BAFE7818025F1600DB68FA /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		13BAFE7A18025F5400DB68FA /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
 		13BAFE7B18025F5400DB68FA /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		13BAFE821802706C00DB68FA /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		13BAFE841802724E00DB68FA /* dashboardBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboardBG@2x.png"; sourceTree = "<group>"; };
+		13BAFE861802740100DB68FA /* gardientBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gardientBG@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 		13BAFE4A18025BF800DB68FA /* WeatherPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				13BAFE7D18026C7200DB68FA /* Images */,
 				13BAFE7A18025F5400DB68FA /* WeatherModel.h */,
 				13BAFE7B18025F5400DB68FA /* WeatherModel.m */,
 				13BAFE7718025F1600DB68FA /* WeatherViewController.h */,
@@ -161,6 +168,16 @@
 				13BAFE6A18025BF800DB68FA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13BAFE7D18026C7200DB68FA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				13BAFE861802740100DB68FA /* gardientBG@2x.png */,
+				13BAFE841802724E00DB68FA /* dashboardBG@2x.png */,
+				13BAFE821802706C00DB68FA /* bg@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13BAFE851802724E00DB68FA /* dashboardBG@2x.png in Resources */,
+				13BAFE831802706C00DB68FA /* bg@2x.png in Resources */,
+				13BAFE871802740100DB68FA /* gardientBG@2x.png in Resources */,
 				13BAFE4F18025BF800DB68FA /* InfoPlist.strings in Resources */,
 				13BAFE5A18025BF800DB68FA /* Images.xcassets in Resources */,
 			);
