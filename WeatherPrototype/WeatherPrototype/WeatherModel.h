@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum WeaponType
+typedef enum WeatherType
 {
     Clear = 0,
     Cloudy,
@@ -20,6 +20,7 @@ typedef enum WeaponType
     MidSnowy,
     HeavySnowy,
     Windy,
+    Thunder,
 }WeatherType;
 
 @interface WeatherModel : NSObject

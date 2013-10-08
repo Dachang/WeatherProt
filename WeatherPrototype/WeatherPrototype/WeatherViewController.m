@@ -9,6 +9,7 @@
 #import "WeatherViewController.h"
 #import "WeatherModel.h"
 
+
 @interface WeatherViewController ()
 
 @end
@@ -29,6 +30,7 @@
     [super viewDidLoad];
 	[self setupBackgroundImage];
     [self setupWeatherInfo];
+    [self initUpcomingWeatherVC];
 }
 
 - (void)setupBackgroundImage
@@ -119,8 +121,6 @@
     self.percip.alpha = 0.65;
     self.percip.font = [UIFont fontWithName:@"Roboto-Condensed" size:8.5];
     [self.view addSubview:self.percip];
-    
-    NSLog(@"My First commit");
 }
 
 #pragma mark - Setup Weather Image
@@ -137,6 +137,65 @@
             break;
     }
     return weatherImage;
+}
+
+#pragma mark - Setup Tiny Weather Image
+- (UIImage*)setupTinyWeatherImageWithWeather:(WeatherType)weather
+{
+    UIImage *tinyWeatherImage = [[UIImage alloc] init];
+    
+    switch (weather) {
+        case Clear:
+            return [UIImage imageNamed:@"ClearTiny"];
+            break;
+        case Overcast:
+            return [UIImage imageNamed:@"OvercastTiny"];
+            break;
+        case Cloudy:
+            return [UIImage imageNamed:@"CloudyTiny"];
+            break;
+        case MidRain:
+            return [UIImage imageNamed:@"RainTiny"];
+            break;
+        case Thunder:
+            return [UIImage imageNamed:@"ThunderStromTiny"];
+            break;
+        default:
+            break;
+    }
+    return tinyWeatherImage;
+}
+
+#pragma mark - Init Upcoming Weather ViewController
+
+- (void)initUpcomingWeatherVC
+{
+    _upcomingWeatherVC = [[UpcomingWeatherViewController alloc] init];
+    _upcomingWeatherVC.delegate = self;
+    _upcomingWeatherVC.view.frame = CGRectMake(0, self.view.bounds.size.height - _upcomingWeatherVC.view.bounds.size.height, _upcomingWeatherVC.view.bounds.size.width, _upcomingWeatherVC.view.bounds.size.height);
+    [self addChildViewController:_upcomingWeatherVC];
+    [self.view addSubview:_upcomingWeatherVC.view];
+    [_upcomingWeatherVC didMoveToParentViewController:self];
+}
+
+#pragma mark - UpcomingWeatherDelegate
+
+- (void)setupWeatherImage
+{
+    _upcomingWeatherVC.firstDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:MidRain];
+    _upcomingWeatherVC.secondDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Thunder];
+    _upcomingWeatherVC.thirdDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Overcast];
+    _upcomingWeatherVC.fourthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Cloudy];
+    _upcomingWeatherVC.fifthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Clear];
+}
+
+- (void)setupWeekLabel
+{
+    _upcomingWeatherVC.firstWeekLabel.text = @"WED";
+    _upcomingWeatherVC.secondWeekLabel.text = @"THUR";
+    _upcomingWeatherVC.thirdWeekLabel.text = @"FRI";
+    _upcomingWeatherVC.fourthWeekLabel.text = @"SAT";
+    _upcomingWeatherVC.fifthWeekLabel.text = @"SUN";
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1303F0C81804428F0046E720 /* UpcomingWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1303F0C61804428F0046E720 /* UpcomingWeatherViewController.m */; };
+		1303F0C91804428F0046E720 /* UpcomingWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0C71804428F0046E720 /* UpcomingWeatherViewController.xib */; };
+		1303F0D01804489A0046E720 /* ClearTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CB1804489A0046E720 /* ClearTiny@2x.png */; };
+		1303F0D11804489A0046E720 /* CloudyTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CC1804489A0046E720 /* CloudyTiny@2x.png */; };
+		1303F0D21804489A0046E720 /* OvercastTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CD1804489A0046E720 /* OvercastTiny@2x.png */; };
+		1303F0D31804489A0046E720 /* RainTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CE1804489A0046E720 /* RainTiny@2x.png */; };
+		1303F0D41804489A0046E720 /* ThunderStromTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CF1804489A0046E720 /* ThunderStromTiny@2x.png */; };
 		13BAFE4318025BF800DB68FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4218025BF800DB68FA /* Foundation.framework */; };
 		13BAFE4518025BF800DB68FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4418025BF800DB68FA /* CoreGraphics.framework */; };
 		13BAFE4718025BF800DB68FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4618025BF800DB68FA /* UIKit.framework */; };
@@ -62,6 +69,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1303F0C51804428F0046E720 /* UpcomingWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingWeatherViewController.h; sourceTree = "<group>"; };
+		1303F0C61804428F0046E720 /* UpcomingWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingWeatherViewController.m; sourceTree = "<group>"; };
+		1303F0C71804428F0046E720 /* UpcomingWeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingWeatherViewController.xib; sourceTree = "<group>"; };
+		1303F0CB1804489A0046E720 /* ClearTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ClearTiny@2x.png"; sourceTree = "<group>"; };
+		1303F0CC1804489A0046E720 /* CloudyTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CloudyTiny@2x.png"; sourceTree = "<group>"; };
+		1303F0CD1804489A0046E720 /* OvercastTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OvercastTiny@2x.png"; sourceTree = "<group>"; };
+		1303F0CE1804489A0046E720 /* RainTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RainTiny@2x.png"; sourceTree = "<group>"; };
+		1303F0CF1804489A0046E720 /* ThunderStromTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ThunderStromTiny@2x.png"; sourceTree = "<group>"; };
 		13BAFE3F18025BF800DB68FA /* WeatherPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAFE4218025BF800DB68FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		13BAFE4418025BF800DB68FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +152,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1303F0C0180440760046E720 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1303F0C71804428F0046E720 /* UpcomingWeatherViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1303F0CA1804489A0046E720 /* TinyWeatherIcon */ = {
+			isa = PBXGroup;
+			children = (
+				1303F0CB1804489A0046E720 /* ClearTiny@2x.png */,
+				1303F0CC1804489A0046E720 /* CloudyTiny@2x.png */,
+				1303F0CD1804489A0046E720 /* OvercastTiny@2x.png */,
+				1303F0CE1804489A0046E720 /* RainTiny@2x.png */,
+				1303F0CF1804489A0046E720 /* ThunderStromTiny@2x.png */,
+			);
+			path = TinyWeatherIcon;
+			sourceTree = "<group>";
+		};
 		13BAFE3618025BF800DB68FA = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +206,7 @@
 		13BAFE4A18025BF800DB68FA /* WeatherPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				1303F0C0180440760046E720 /* View */,
 				13BAFEB81802B58500DB68FA /* Controllers */,
 				13BAFEB71802B56900DB68FA /* Model */,
 				13BAFE881802796000DB68FA /* Fonts */,
@@ -216,6 +252,7 @@
 		13BAFE7D18026C7200DB68FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1303F0CA1804489A0046E720 /* TinyWeatherIcon */,
 				13BAFEB41802AB8E00DB68FA /* weatherImage */,
 				13BAFEB01802A9A200DB68FA /* percip@2x.png */,
 				13BAFEB11802A9A200DB68FA /* condition@2x.png */,
@@ -275,6 +312,8 @@
 			children = (
 				13BAFE7718025F1600DB68FA /* WeatherViewController.h */,
 				13BAFE7818025F1600DB68FA /* WeatherViewController.m */,
+				1303F0C51804428F0046E720 /* UpcomingWeatherViewController.h */,
+				1303F0C61804428F0046E720 /* UpcomingWeatherViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -357,17 +396,21 @@
 			files = (
 				13BAFEAB1802997900DB68FA /* calculus@2x.png in Resources */,
 				13BAFE851802724E00DB68FA /* dashboardBG@2x.png in Resources */,
+				1303F0D41804489A0046E720 /* ThunderStromTiny@2x.png in Resources */,
 				13BAFEAD18029F0A00DB68FA /* locationInd@2x.png in Resources */,
 				13BAFE9E1802796000DB68FA /* Roboto-BoldItalic.ttf in Resources */,
 				13BAFEA31802796000DB68FA /* Roboto-LightItalic.ttf in Resources */,
 				13BAFEA81802796000DB68FA /* Roboto-ThinItalic.ttf in Resources */,
 				13BAFEB21802A9A200DB68FA /* percip@2x.png in Resources */,
 				13BAFEA41802796000DB68FA /* Roboto-Medium.ttf in Resources */,
+				1303F0D11804489A0046E720 /* CloudyTiny@2x.png in Resources */,
+				1303F0D21804489A0046E720 /* OvercastTiny@2x.png in Resources */,
 				13BAFEA21802796000DB68FA /* Roboto-Light.ttf in Resources */,
 				13BAFE831802706C00DB68FA /* bg@2x.png in Resources */,
 				13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */,
 				13BAFE871802740100DB68FA /* gardientBG@2x.png in Resources */,
 				13BAFE9A1802796000DB68FA /* Roboto-BlackItalic.ttf in Resources */,
+				1303F0C91804428F0046E720 /* UpcomingWeatherViewController.xib in Resources */,
 				13BAFEA71802796000DB68FA /* Roboto-Thin.ttf in Resources */,
 				13BAFE9F1802796000DB68FA /* Roboto-Condensed.ttf in Resources */,
 				13BAFEAF1802A59C00DB68FA /* highLow@2x.png in Resources */,
@@ -375,8 +418,10 @@
 				13BAFEB31802A9A200DB68FA /* condition@2x.png in Resources */,
 				13BAFEA01802796000DB68FA /* Roboto-CondensedItalic.ttf in Resources */,
 				13BAFE5A18025BF800DB68FA /* Images.xcassets in Resources */,
+				1303F0D01804489A0046E720 /* ClearTiny@2x.png in Resources */,
 				13BAFE9B1802796000DB68FA /* Roboto-Bold.ttf in Resources */,
 				13BAFE9C1802796000DB68FA /* Roboto-BoldCondensed.ttf in Resources */,
+				1303F0D31804489A0046E720 /* RainTiny@2x.png in Resources */,
 				13BAFEA11802796000DB68FA /* Roboto-Italic.ttf in Resources */,
 				13BAFEA61802796000DB68FA /* Roboto-Regular.ttf in Resources */,
 				13BAFE9D1802796000DB68FA /* Roboto-BoldCondensedItalic.ttf in Resources */,
@@ -405,6 +450,7 @@
 				13BAFE7918025F1600DB68FA /* WeatherViewController.m in Sources */,
 				13BAFE5818025BF800DB68FA /* WeatherPrototype.xcdatamodeld in Sources */,
 				13BAFE5118025BF800DB68FA /* main.m in Sources */,
+				1303F0C81804428F0046E720 /* UpcomingWeatherViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

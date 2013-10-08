@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UpcomingWeatherViewController.h"
 @class WeatherModel;
 
-@interface WeatherViewController : UIViewController
+@interface WeatherViewController : UIViewController<UpcomingWeatherDelegate>
 
 @property (strong, nonatomic) WeatherModel *weather;
 @property (strong, nonatomic) UIImageView *backgroundImage;
@@ -30,5 +31,7 @@
 @property (strong, nonatomic) UIImageView *highLowImage;
 @property (strong, nonatomic) UIImageView *conditionImage;
 @property (strong, nonatomic) UIImageView *percipImage;
+
+@property (strong, nonatomic) UpcomingWeatherViewController *upcomingWeatherVC;
 
 @end
