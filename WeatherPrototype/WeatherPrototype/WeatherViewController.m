@@ -8,7 +8,8 @@
 
 #import "WeatherViewController.h"
 #import "WeatherModel.h"
-
+#import "UILabel+Font.h"
+#import "UIView+Frame.h"
 
 @interface WeatherViewController ()
 
@@ -52,7 +53,7 @@
     self.currentTemperature.text =[NSString stringWithFormat:@"%d", [self.weather getCurrentTemp]];
     self.currentTemperature.frame = CGRectMake((self.view.bounds.size.width - 130)/2, 50, 130, 130);
     self.currentTemperature.textColor = [UIColor whiteColor];
-    self.currentTemperature.font = [UIFont fontWithName:@"Roboto-Thin" size:68];
+    [self.currentTemperature useRobotoThinFontWithSize:68];
     [self.view addSubview:self.currentTemperature];
     //temperature unit
     self.tempUnitImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"calculus"]];
@@ -60,66 +61,66 @@
     [self.view addSubview:self.tempUnitImage];
     //location indicator
     self.LocationIndicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locationInd"]];
-    self.LocationIndicator.frame = CGRectMake(118, 160, 10, 15);
+    self.LocationIndicator.frame = LOCATION_INDICATOR_POSITION;
     [self.view addSubview:self.LocationIndicator];
     //location
     self.location = [[UILabel alloc] init];
     self.location.text =[NSString stringWithFormat:@"%@", [self.weather getLocation]];
-    self.location.frame = CGRectMake(135, 158, 120, 20);
+    self.location.frame = LOCATION_LABEL_POSITION;
     self.location.textColor = [UIColor whiteColor];
-    self.location.font = [UIFont fontWithName:@"Roboto-Condensed" size:13];
+    [self.location useRobotoCondensedFontWithSize:13];
     [self.view addSubview:self.location];
     //weather image
     self.weatherImage = [[UIImageView alloc] init];
     self.weatherImage.image = [self setupWeatherImageWithWeather:Clear];
-    self.weatherImage.frame = CGRectMake(15, 280, 65, 65);
+    self.weatherImage.frame = WEATHER_IMAGE_POSITION;
     [self.view addSubview:self.weatherImage];
     //date
     self.date = [[UILabel alloc] init];
     self.date.text = [NSString stringWithFormat:@"%@", [self.weather getDate]];
-    self.date.frame = CGRectMake(230, 280, 120, 20);
+    self.date.frame = DATE_LABEL_POSITION;
     self.date.textColor = [UIColor whiteColor];
-    self.date.font = [UIFont fontWithName:@"Roboto-Condensed" size:12];
+    [self.date useRobotoCondensedFontWithSize:12];
     [self.view addSubview:self.date];
     //week
     self.week = [[UILabel alloc] init];
     self.week.text = [NSString stringWithFormat:@"%@", [self.weather getWeek]];
-    self.week.frame = CGRectMake(290, 280, 120, 20);
+    self.week.frame = WEEK_LABEL_POSITION;
     self.week.textColor = [UIColor whiteColor];
-    self.week.font = [UIFont fontWithName:@"Roboto-Condensed" size:12];
+    [self.week useRobotoCondensedFontWithSize:12];
     [self.view addSubview:self.week];
     //high/low
     self.highLowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"highLow"]];
-    self.highLowImage.frame = CGRectMake(98, 338, 36, 6.5);
+    self.highLowImage.frame = HIGH_LOW_TEMP_IMAGE_POSITION;
     [self.view addSubview:self.highLowImage];
     self.highLowTemperature = [[UILabel alloc] init];
     self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d", [self.weather getHighTemp],[self.weather getLowTemp]];
-    self.highLowTemperature.frame = CGRectMake(140, 338, 40, 6.5);
+    self.highLowTemperature.frame = HIGH_LOW_TEMP_LABEL_POSITION;
     self.highLowTemperature.textColor = [UIColor whiteColor];
     self.highLowTemperature.alpha = 0.65;
-    self.highLowTemperature.font = [UIFont fontWithName:@"Roboto-Condensed" size:8.5];
+    [self.highLowTemperature useRobotoCondensedFontWithSize:8.5];
     [self.view addSubview:self.highLowTemperature];
     //condition
     self.conditionImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"condition"]];
-    self.conditionImage.frame = CGRectMake(182, 338, 39, 6);
+    self.conditionImage.frame = CONDITION_IMAGE_POSITION;
     [self.view addSubview:self.conditionImage];
     self.condition = [[UILabel alloc] init];
     self.condition.text = [NSString stringWithFormat:@"%@", [self.weather getCondition]];
-    self.condition.frame = CGRectMake(227, 338, 40, 6);
+    self.condition.frame = CONDITION_LABEL_POSITION;
     self.condition.textColor = [UIColor whiteColor];
     self.condition.alpha = 0.65;
-    self.condition.font = [UIFont fontWithName:@"Roboto-Condensed" size:8.5];
+    [self.condition useRobotoCondensedFontWithSize:8.5];
     [self.view addSubview:self.condition];
     //percip
     self.percipImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"percip"]];
-    self.percipImage.frame = CGRectMake(267, 338, 25, 6);
+    self.percipImage.frame = PERCIP_IMAGE_POSITION;
     [self.view addSubview:self.percipImage];
     self.percip = [[UILabel alloc] init];
     self.percip.text = [NSString stringWithFormat:@"%@", [self.weather getPercip]];
-    self.percip.frame = CGRectMake(297, 338, 40, 6);
+    self.percip.frame = PERCIP_LABEL_POSITION;
     self.percip.textColor = [UIColor whiteColor];
     self.percip.alpha = 0.65;
-    self.percip.font = [UIFont fontWithName:@"Roboto-Condensed" size:8.5];
+    [self.percip useRobotoCondensedFontWithSize:8.5];
     [self.view addSubview:self.percip];
 }
 

@@ -11,5 +11,7 @@
 @interface UILabel (Font)
 
 - (void)useRobotoBoldFontWithSize:(CGFloat)size;
+- (void)useRobotoCondensedFontWithSize:(CGFloat)size;
+- (void)useRobotoThinFontWithSize:(CGFloat)size;
 
 @end

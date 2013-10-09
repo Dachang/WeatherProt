@@ -15,4 +15,14 @@
     [self setFont:[UIFont fontWithName:@"Roboto-Bold" size:size]];
 }
 
+- (void)useRobotoCondensedFontWithSize:(CGFloat)size
+{
+    [self setFont:[UIFont fontWithName:@"Roboto-Condensed" size:size]];
+}
+
+- (void)useRobotoThinFontWithSize:(CGFloat)size
+{
+    [self setFont:[UIFont fontWithName:@"Roboto-Thin" size:size]];
+}
+
 @end
