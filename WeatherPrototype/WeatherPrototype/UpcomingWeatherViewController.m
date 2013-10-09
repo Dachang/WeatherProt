@@ -46,16 +46,11 @@
 
 - (void)setWeekLabel
 {
-    [_firstWeekLabel useRobotoBoldFontWithSize:9];
-    _firstWeekLabel.textColor = [UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0];
-    [_secondWeekLabel useRobotoBoldFontWithSize:9];
-    _secondWeekLabel.textColor = [UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0];
-    [_thirdWeekLabel useRobotoBoldFontWithSize:9];
-    _thirdWeekLabel.textColor = [UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0];
-    [_fourthWeekLabel useRobotoBoldFontWithSize:9];
-    _fourthWeekLabel.textColor = [UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0];
-    [_fifthWeekLabel useRobotoBoldFontWithSize:9];
-    _fifthWeekLabel.textColor = [UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0];
+    [_firstWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
+    [_secondWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
+    [_thirdWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
+    [_fourthWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
+    [_fifthWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
     [self.delegate setupWeekLabel];
 }
 

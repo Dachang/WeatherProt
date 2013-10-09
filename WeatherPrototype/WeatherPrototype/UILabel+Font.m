@@ -10,19 +10,22 @@
 
 @implementation UILabel (Font)
 
-- (void)useRobotoBoldFontWithSize:(CGFloat)size
+- (void)useRobotoBoldFontWithSize:(CGFloat)size Color:(UIColor *)color
 {
     [self setFont:[UIFont fontWithName:@"Roboto-Bold" size:size]];
+    self.textColor = color;
 }
 
-- (void)useRobotoCondensedFontWithSize:(CGFloat)size
+- (void)useRobotoCondensedFontWithSize:(CGFloat)size Color:(UIColor *)color
 {
     [self setFont:[UIFont fontWithName:@"Roboto-Condensed" size:size]];
+    self.textColor = color;
 }
 
-- (void)useRobotoThinFontWithSize:(CGFloat)size
+- (void)useRobotoThinFontWithSize:(CGFloat)size Color:(UIColor *)color
 {
     [self setFont:[UIFont fontWithName:@"Roboto-Thin" size:size]];
+    self.textColor = color;
 }
 
 @end

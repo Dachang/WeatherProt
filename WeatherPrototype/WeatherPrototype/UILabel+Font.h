@@ -10,8 +10,8 @@
 
 @interface UILabel (Font)
 
-- (void)useRobotoBoldFontWithSize:(CGFloat)size;
-- (void)useRobotoCondensedFontWithSize:(CGFloat)size;
-- (void)useRobotoThinFontWithSize:(CGFloat)size;
+- (void)useRobotoBoldFontWithSize:(CGFloat)size Color:(UIColor*)color;
+- (void)useRobotoCondensedFontWithSize:(CGFloat)size Color:(UIColor*)color;
+- (void)useRobotoThinFontWithSize:(CGFloat)size Color:(UIColor*)color;
 
 @end
