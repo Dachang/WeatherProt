@@ -28,4 +28,10 @@
     self.textColor = color;
 }
 
+- (void)useRobotoBoldCondensedFontWithSize:(CGFloat)size Color:(UIColor *)color
+{
+    [self setFont:[UIFont fontWithName:@"Roboto-BoldCondensed" size:size]];
+    self.textColor = color;
+}
+
 @end

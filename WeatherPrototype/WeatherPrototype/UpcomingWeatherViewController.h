@@ -13,6 +13,8 @@
 @required
 - (void)setupWeatherImage;
 - (void)setupWeekLabel;
+- (void)setupHighLowTempLabel;
+- (void)setupConditionImage;
 @end
 
 @interface UpcomingWeatherViewController : UIViewController
@@ -28,6 +30,18 @@
 @property (strong, nonatomic) IBOutlet UILabel *thirdWeekLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fourthWeekLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fifthWeekLabel;
+//high/low label
+@property (strong, nonatomic) IBOutlet UILabel *firstHighLowLabel;
+@property (strong, nonatomic) IBOutlet UILabel *secondHighLowLabel;
+@property (strong, nonatomic) IBOutlet UILabel *thirdHighLowLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fourthHighLowLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fifthHighLowLabel;
+//condition image
+@property (strong, nonatomic) IBOutlet UIImageView *firstConditionImage;
+@property (strong, nonatomic) IBOutlet UIImageView *secondConditionImage;
+@property (strong, nonatomic) IBOutlet UIImageView *thirdConditionImage;
+@property (strong, nonatomic) IBOutlet UIImageView *fourthConditionImage;
+@property (strong, nonatomic) IBOutlet UIImageView *fifthConditionImage;
 
 @property (nonatomic, weak) id<UpcomingWeatherDelegate> delegate;
 

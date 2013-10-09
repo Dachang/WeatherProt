@@ -14,6 +14,8 @@
 		1303F0D21804489A0046E720 /* OvercastTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CD1804489A0046E720 /* OvercastTiny@2x.png */; };
 		1303F0D31804489A0046E720 /* RainTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CE1804489A0046E720 /* RainTiny@2x.png */; };
 		1303F0D41804489A0046E720 /* ThunderStromTiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1303F0CF1804489A0046E720 /* ThunderStromTiny@2x.png */; };
+		1348DF8B1805BA1E0051211C /* fair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1348DF891805BA1E0051211C /* fair@2x.png */; };
+		1348DF8C1805BA1E0051211C /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1348DF8A1805BA1E0051211C /* clear@2x.png */; };
 		13BAFE4318025BF800DB68FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4218025BF800DB68FA /* Foundation.framework */; };
 		13BAFE4518025BF800DB68FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4418025BF800DB68FA /* CoreGraphics.framework */; };
 		13BAFE4718025BF800DB68FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BAFE4618025BF800DB68FA /* UIKit.framework */; };
@@ -79,6 +81,8 @@
 		1303F0CD1804489A0046E720 /* OvercastTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OvercastTiny@2x.png"; sourceTree = "<group>"; };
 		1303F0CE1804489A0046E720 /* RainTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RainTiny@2x.png"; sourceTree = "<group>"; };
 		1303F0CF1804489A0046E720 /* ThunderStromTiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ThunderStromTiny@2x.png"; sourceTree = "<group>"; };
+		1348DF891805BA1E0051211C /* fair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fair@2x.png"; sourceTree = "<group>"; };
+		1348DF8A1805BA1E0051211C /* clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clear@2x.png"; sourceTree = "<group>"; };
 		13BAFE3F18025BF800DB68FA /* WeatherPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAFE4218025BF800DB68FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		13BAFE4418025BF800DB68FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -259,6 +263,8 @@
 		13BAFE7D18026C7200DB68FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1348DF891805BA1E0051211C /* fair@2x.png */,
+				1348DF8A1805BA1E0051211C /* clear@2x.png */,
 				1303F0CA1804489A0046E720 /* TinyWeatherIcon */,
 				13BAFEB41802AB8E00DB68FA /* weatherImage */,
 				13BAFEB01802A9A200DB68FA /* percip@2x.png */,
@@ -426,7 +432,9 @@
 				13BAFEA21802796000DB68FA /* Roboto-Light.ttf in Resources */,
 				13BAFE831802706C00DB68FA /* bg@2x.png in Resources */,
 				13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */,
+				1348DF8B1805BA1E0051211C /* fair@2x.png in Resources */,
 				13BAFE871802740100DB68FA /* gardientBG@2x.png in Resources */,
+				1348DF8C1805BA1E0051211C /* clear@2x.png in Resources */,
 				13BAFE9A1802796000DB68FA /* Roboto-BlackItalic.ttf in Resources */,
 				1303F0C91804428F0046E720 /* UpcomingWeatherViewController.xib in Resources */,
 				13BAFEA71802796000DB68FA /* Roboto-Thin.ttf in Resources */,

@@ -13,5 +13,6 @@
 - (void)useRobotoBoldFontWithSize:(CGFloat)size Color:(UIColor*)color;
 - (void)useRobotoCondensedFontWithSize:(CGFloat)size Color:(UIColor*)color;
 - (void)useRobotoThinFontWithSize:(CGFloat)size Color:(UIColor*)color;
+- (void)useRobotoBoldCondensedFontWithSize:(CGFloat)size Color:(UIColor*)color;
 
 @end

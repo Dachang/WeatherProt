@@ -29,6 +29,8 @@
     [super viewDidLoad];
     [self setWeatherImage];
     [self setWeekLabel];
+    [self setHighLowTempLabel];
+    [self setConditionImage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +54,21 @@
     [_fourthWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
     [_fifthWeekLabel useRobotoBoldFontWithSize:9 Color:[UIColor colorWithRed:126.0/255.0 green:144.0/255.0 blue:158.0/255.0 alpha:1.0]];
     [self.delegate setupWeekLabel];
+}
+
+- (void)setHighLowTempLabel
+{
+    [_firstHighLowLabel useRobotoBoldCondensedFontWithSize:9 Color:[UIColor colorWithRed:209.0/255.0 green:192.0/255.0 blue:165.0/255.0 alpha:1.0]];
+    [_secondHighLowLabel useRobotoBoldCondensedFontWithSize:9 Color:[UIColor colorWithRed:209.0/255.0 green:192.0/255.0 blue:165.0/255.0 alpha:1.0]];
+    [_thirdHighLowLabel useRobotoBoldCondensedFontWithSize:9 Color:[UIColor colorWithRed:209.0/255.0 green:192.0/255.0 blue:165.0/255.0 alpha:1.0]];
+    [_fourthHighLowLabel useRobotoBoldCondensedFontWithSize:9 Color:[UIColor colorWithRed:209.0/255.0 green:192.0/255.0 blue:165.0/255.0 alpha:1.0]];
+    [_fifthHighLowLabel useRobotoBoldCondensedFontWithSize:9 Color:[UIColor colorWithRed:209.0/255.0 green:192.0/255.0 blue:165.0/255.0 alpha:1.0]];
+    [self.delegate setupHighLowTempLabel];
+}
+
+- (void)setConditionImage
+{
+    [self.delegate setupConditionImage];
 }
 
 @end

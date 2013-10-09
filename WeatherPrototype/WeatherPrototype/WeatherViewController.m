@@ -90,7 +90,7 @@
     self.highLowImage.frame = HIGH_LOW_TEMP_IMAGE_POSITION;
     [self.view addSubview:self.highLowImage];
     self.highLowTemperature = [[UILabel alloc] init];
-    self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d", [self.weather getHighTemp],[self.weather getLowTemp]];
+    self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d℃", [self.weather getHighTemp],[self.weather getLowTemp]];
     self.highLowTemperature.frame = HIGH_LOW_TEMP_LABEL_POSITION;
     self.highLowTemperature.alpha = 0.65;
     [self.highLowTemperature useRobotoCondensedFontWithSize:8.5 Color:[UIColor whiteColor]];
@@ -190,6 +190,24 @@
     _upcomingWeatherVC.thirdWeekLabel.text = @"FRI";
     _upcomingWeatherVC.fourthWeekLabel.text = @"SAT";
     _upcomingWeatherVC.fifthWeekLabel.text = @"SUN";
+}
+
+- (void)setupHighLowTempLabel
+{
+    _upcomingWeatherVC.firstHighLowLabel.text = @"32/25℃";
+    _upcomingWeatherVC.secondHighLowLabel.text = @"30/23℃";
+    _upcomingWeatherVC.thirdHighLowLabel.text = @"33/27℃";
+    _upcomingWeatherVC.fourthHighLowLabel.text = @"34/25℃";
+    _upcomingWeatherVC.fifthHighLowLabel.text = @"36/27℃";
+}
+
+- (void)setupConditionImage
+{
+    _upcomingWeatherVC.firstConditionImage.image = [UIImage imageNamed:@"fair"];
+    _upcomingWeatherVC.secondConditionImage.image = [UIImage imageNamed:@"clear"];
+    _upcomingWeatherVC.thirdConditionImage.image = [UIImage imageNamed:@"fair"];
+    _upcomingWeatherVC.fourthConditionImage.image = [UIImage imageNamed:@"fair"];
+    _upcomingWeatherVC.fifthConditionImage.image = [UIImage imageNamed:@"fair"];
 }
 
 - (void)didReceiveMemoryWarning

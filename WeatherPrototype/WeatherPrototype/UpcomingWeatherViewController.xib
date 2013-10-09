@@ -6,15 +6,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpcomingWeatherViewController">
             <connections>
+                <outlet property="fifthConditionImage" destination="zWN-Y4-rK2" id="m0p-FF-pEs"/>
                 <outlet property="fifthDayWeatherImage" destination="l1B-4B-267" id="4VG-HL-QwZ"/>
+                <outlet property="fifthHighLowLabel" destination="z23-9Q-LXp" id="rfu-EJ-db4"/>
                 <outlet property="fifthWeekLabel" destination="TbT-41-70s" id="Nuf-Cl-n7F"/>
+                <outlet property="firstConditionImage" destination="gYX-5A-s3b" id="AqX-Hz-A2X"/>
                 <outlet property="firstDayWeatherImage" destination="gIZ-UB-o9b" id="fPO-Yr-Nkp"/>
+                <outlet property="firstHighLowLabel" destination="jlI-Ff-wA2" id="dsm-pf-Wf5"/>
                 <outlet property="firstWeekLabel" destination="81j-jW-g7c" id="cUm-dp-xg0"/>
+                <outlet property="fourthConditionImage" destination="Zet-uh-Ee8" id="JSd-Ri-L99"/>
                 <outlet property="fourthDayWeatherImage" destination="Dr7-ew-NDK" id="v2n-Ec-rKI"/>
+                <outlet property="fourthHighLowLabel" destination="8ZJ-KF-9TZ" id="WZX-Jf-zRb"/>
                 <outlet property="fourthWeekLabel" destination="gmt-RK-SkO" id="MkD-r1-cDX"/>
+                <outlet property="secondConditionImage" destination="sdZ-kf-kUB" id="x0z-8k-R5X"/>
                 <outlet property="secondDayWeatherImage" destination="cbK-3h-jSC" id="WGr-Sf-9jC"/>
+                <outlet property="secondHighLowLabel" destination="NUr-wb-GsI" id="sxf-HE-gIo"/>
                 <outlet property="secondWeekLabel" destination="mDG-e2-ia6" id="cSh-e0-xcb"/>
+                <outlet property="thirdConditionImage" destination="EHi-LM-YKl" id="ycl-nO-90P"/>
                 <outlet property="thirdDayWeatherImage" destination="zcs-wM-V79" id="TGq-Ct-PbO"/>
+                <outlet property="thirdHighLowLabel" destination="7gf-Pg-aYi" id="75j-5h-PoF"/>
                 <outlet property="thirdWeekLabel" destination="zkn-5B-eRN" id="kWh-08-5ga"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -79,6 +89,61 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlI-Ff-wA2">
+                    <rect key="frame" x="21" y="133" width="35" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUr-wb-GsI">
+                    <rect key="frame" x="82" y="133" width="35" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gf-Pg-aYi">
+                    <rect key="frame" x="143" y="133" width="35" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZJ-KF-9TZ">
+                    <rect key="frame" x="204" y="133" width="35" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z23-9Q-LXp">
+                    <rect key="frame" x="265" y="133" width="35" height="10"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-5A-s3b">
+                    <rect key="frame" x="25" y="158" width="26" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdZ-kf-kUB">
+                    <rect key="frame" x="86" y="158" width="26" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EHi-LM-YKl">
+                    <rect key="frame" x="147" y="158" width="26" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-uh-Ee8">
+                    <rect key="frame" x="208" y="158" width="26" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zWN-Y4-rK2">
+                    <rect key="frame" x="269" y="158" width="26" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
