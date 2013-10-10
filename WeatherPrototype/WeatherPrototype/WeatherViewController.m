@@ -36,8 +36,10 @@
 
 - (void)setupBackgroundImage
 {
-    self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"motionBg"]];
+    self.backgroundImage.frame = CGRectMake(0 - 40, 0 - 80, self.backgroundImage.bounds.size.width, self.backgroundImage.bounds.size.height);
     [self.view addSubview:self.backgroundImage];
+    [self addMotionEffectToView:self.backgroundImage magnitude:40.0];
     self.dashboardBackgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardBG"]];
     self.dashboardBackgroundImage.frame = CGRectMake(0, self.view.bounds.size.height - self.dashboardBackgroundImage.bounds.size.height, self.dashboardBackgroundImage.bounds.size.width, self.dashboardBackgroundImage.bounds.size.height);
     [self.view addSubview:self.dashboardBackgroundImage];
@@ -158,6 +160,23 @@
             break;
     }
     return tinyWeatherImage;
+}
+
+#pragma mark - Add Motion Effect
+
+- (void)addMotionEffectToView:(UIView*)view magnitude:(float)magnitude
+{
+    UIInterpolatingMotionEffect *xMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    xMotion.minimumRelativeValue = @(-magnitude);
+    xMotion.maximumRelativeValue = @(magnitude);
+    
+    UIInterpolatingMotionEffect *yMotion = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    yMotion.minimumRelativeValue = @(-magnitude);
+    yMotion.maximumRelativeValue = @(magnitude);
+    
+    UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
+    group.motionEffects = @[xMotion, yMotion];
+    [view addMotionEffect:group];
 }
 
 #pragma mark - Init Upcoming Weather ViewController
