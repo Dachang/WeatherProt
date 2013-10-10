@@ -21,7 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.weather = [WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear];
+        [self initWeather];
     }
     return self;
 }
@@ -33,6 +33,21 @@
     [self setupWeatherInfo];
     [self initUpcomingWeatherVC];
 }
+
+#pragma mark - init weather object
+- (void)initWeather
+{
+    _weatherArray = [[NSMutableArray alloc] init];
+    
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:32 lowTemp:25 location:@"Shanghai, CH" week:@"WED" date:@"2013-10-9" condition:@"FAIR" percip:@"-" weather:MidRain]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:30 lowTemp:23 location:@"Shanghai, CH" week:@"THUR" date:@"2013-10-10" condition:@"CLEAR" percip:@"-" weather:Thunder]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:33 lowTemp:27 location:@"Shanghai, CH" week:@"FRI" date:@"2013-10-11" condition:@"FAIR" percip:@"-" weather:Overcast]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:34 lowTemp:25 location:@"Shanghai, CH" week:@"SAT" date:@"2013-10-12" condition:@"FAIR" percip:@"-" weather:Cloudy]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:36 lowTemp:27 location:@"Shanghai, CH" week:@"SUN" date:@"2013-10-13" condition:@"FAIR" percip:@"-" weather:Clear]];
+}
+
+#pragma mark - setup images
 
 - (void)setupBackgroundImage
 {
@@ -48,11 +63,13 @@
     [self.view addSubview:self.gardientBackgroundImage];
 }
 
+#pragma mark - setup current weather UI position
+
 - (void)setupWeatherInfo
 {
     //current temperature today
     self.currentTemperature = [[UILabel alloc] init];
-    self.currentTemperature.text =[NSString stringWithFormat:@"%d", [self.weather getCurrentTemp]];
+    self.currentTemperature.text =[NSString stringWithFormat:@"%d", [[self.weatherArray objectAtIndex:0] getCurrentTemp]];
     self.currentTemperature.frame = CGRectMake((self.view.bounds.size.width - 130)/2, 50, 130, 130);
     [self.currentTemperature useRobotoThinFontWithSize:68 Color:[UIColor whiteColor]];
     [self.view addSubview:self.currentTemperature];
@@ -66,24 +83,24 @@
     [self.view addSubview:self.LocationIndicator];
     //location
     self.location = [[UILabel alloc] init];
-    self.location.text =[NSString stringWithFormat:@"%@", [self.weather getLocation]];
+    self.location.text =[NSString stringWithFormat:@"%@", [[self.weatherArray objectAtIndex:0] getLocation]];
     self.location.frame = LOCATION_LABEL_POSITION;
     [self.location useRobotoCondensedFontWithSize:13 Color:[UIColor whiteColor]];
     [self.view addSubview:self.location];
     //weather image
     self.weatherImage = [[UIImageView alloc] init];
-    self.weatherImage.image = [self setupWeatherImageWithWeather:Clear];
+    self.weatherImage.image = [self setupWeatherImageWithWeather:[[self.weatherArray objectAtIndex:0] getWeather]];
     self.weatherImage.frame = WEATHER_IMAGE_POSITION;
     [self.view addSubview:self.weatherImage];
     //date
     self.date = [[UILabel alloc] init];
-    self.date.text = [NSString stringWithFormat:@"%@", [self.weather getDate]];
+    self.date.text = [NSString stringWithFormat:@"%@", [[self.weatherArray objectAtIndex:0] getDate]];
     self.date.frame = DATE_LABEL_POSITION;
     [self.date useRobotoCondensedFontWithSize:12 Color:[UIColor whiteColor]];
     [self.view addSubview:self.date];
     //week
     self.week = [[UILabel alloc] init];
-    self.week.text = [NSString stringWithFormat:@"%@", [self.weather getWeek]];
+    self.week.text = [NSString stringWithFormat:@"%@", [[self.weatherArray objectAtIndex:0] getWeek]];
     self.week.frame = WEEK_LABEL_POSITION;
     [self.week useRobotoCondensedFontWithSize:12 Color:[UIColor whiteColor]];
     [self.view addSubview:self.week];
@@ -92,7 +109,7 @@
     self.highLowImage.frame = HIGH_LOW_TEMP_IMAGE_POSITION;
     [self.view addSubview:self.highLowImage];
     self.highLowTemperature = [[UILabel alloc] init];
-    self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d℃", [self.weather getHighTemp],[self.weather getLowTemp]];
+    self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:0] getHighTemp],[[self.weatherArray objectAtIndex:0] getLowTemp]];
     self.highLowTemperature.frame = HIGH_LOW_TEMP_LABEL_POSITION;
     self.highLowTemperature.alpha = 0.65;
     [self.highLowTemperature useRobotoCondensedFontWithSize:8.5 Color:[UIColor whiteColor]];
@@ -102,7 +119,7 @@
     self.conditionImage.frame = CONDITION_IMAGE_POSITION;
     [self.view addSubview:self.conditionImage];
     self.condition = [[UILabel alloc] init];
-    self.condition.text = [NSString stringWithFormat:@"%@", [self.weather getCondition]];
+    self.condition.text = [NSString stringWithFormat:@"%@", [[self.weatherArray objectAtIndex:0] getCondition]];
     self.condition.frame = CONDITION_LABEL_POSITION;
     self.condition.alpha = 0.65;
     [self.condition useRobotoCondensedFontWithSize:8.5 Color:[UIColor whiteColor]];
@@ -112,7 +129,7 @@
     self.percipImage.frame = PERCIP_IMAGE_POSITION;
     [self.view addSubview:self.percipImage];
     self.percip = [[UILabel alloc] init];
-    self.percip.text = [NSString stringWithFormat:@"%@", [self.weather getPercip]];
+    self.percip.text = [NSString stringWithFormat:@"%@", [[self.weatherArray objectAtIndex:0] getPercip]];
     self.percip.frame = PERCIP_LABEL_POSITION;
     self.percip.alpha = 0.65;
     [self.percip useRobotoCondensedFontWithSize:8.5 Color:[UIColor whiteColor]];
@@ -162,6 +179,16 @@
     return tinyWeatherImage;
 }
 
+#pragma mark - Setup Condition Image
+- (UIImage*)setupConditionImageWithCondition:(NSString*)condition
+{
+    if ([condition isEqualToString:@"FAIR"])
+    {
+        return [UIImage imageNamed:@"fair"];
+    }
+    else return [UIImage imageNamed:@"clear"];
+}
+
 #pragma mark - Add Motion Effect
 
 - (void)addMotionEffectToView:(UIView*)view magnitude:(float)magnitude
@@ -195,38 +222,38 @@
 
 - (void)setupWeatherImage
 {
-    _upcomingWeatherVC.firstDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:MidRain];
-    _upcomingWeatherVC.secondDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Thunder];
-    _upcomingWeatherVC.thirdDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Overcast];
-    _upcomingWeatherVC.fourthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Cloudy];
-    _upcomingWeatherVC.fifthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:Clear];
+    _upcomingWeatherVC.firstDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:[[self.weatherArray objectAtIndex:1] getWeather]];
+    _upcomingWeatherVC.secondDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:[[self.weatherArray objectAtIndex:2] getWeather]];
+    _upcomingWeatherVC.thirdDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:[[self.weatherArray objectAtIndex:3] getWeather]];
+    _upcomingWeatherVC.fourthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:[[self.weatherArray objectAtIndex:4] getWeather]];
+    _upcomingWeatherVC.fifthDayWeatherImage.image = [self setupTinyWeatherImageWithWeather:[[self.weatherArray objectAtIndex:5] getWeather]];
 }
 
 - (void)setupWeekLabel
 {
-    _upcomingWeatherVC.firstWeekLabel.text = @"WED";
-    _upcomingWeatherVC.secondWeekLabel.text = @"THUR";
-    _upcomingWeatherVC.thirdWeekLabel.text = @"FRI";
-    _upcomingWeatherVC.fourthWeekLabel.text = @"SAT";
-    _upcomingWeatherVC.fifthWeekLabel.text = @"SUN";
+    _upcomingWeatherVC.firstWeekLabel.text = [[self.weatherArray objectAtIndex:1] getWeek];
+    _upcomingWeatherVC.secondWeekLabel.text = [[self.weatherArray objectAtIndex:2] getWeek];
+    _upcomingWeatherVC.thirdWeekLabel.text = [[self.weatherArray objectAtIndex:3] getWeek];
+    _upcomingWeatherVC.fourthWeekLabel.text = [[self.weatherArray objectAtIndex:4] getWeek];
+    _upcomingWeatherVC.fifthWeekLabel.text = [[self.weatherArray objectAtIndex:5] getWeek];
 }
 
 - (void)setupHighLowTempLabel
 {
-    _upcomingWeatherVC.firstHighLowLabel.text = @"32/25℃";
-    _upcomingWeatherVC.secondHighLowLabel.text = @"30/23℃";
-    _upcomingWeatherVC.thirdHighLowLabel.text = @"33/27℃";
-    _upcomingWeatherVC.fourthHighLowLabel.text = @"34/25℃";
-    _upcomingWeatherVC.fifthHighLowLabel.text = @"36/27℃";
+    _upcomingWeatherVC.firstHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:1] getHighTemp], [[self.weatherArray objectAtIndex:1] getLowTemp]];
+    _upcomingWeatherVC.secondHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:2] getHighTemp], [[self.weatherArray objectAtIndex:2] getLowTemp]];
+    _upcomingWeatherVC.thirdHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:3] getHighTemp], [[self.weatherArray objectAtIndex:3] getLowTemp]];
+    _upcomingWeatherVC.fourthHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:4] getHighTemp], [[self.weatherArray objectAtIndex:4] getLowTemp]];
+    _upcomingWeatherVC.fifthHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:5] getHighTemp], [[self.weatherArray objectAtIndex:5] getLowTemp]];
 }
 
 - (void)setupConditionImage
 {
-    _upcomingWeatherVC.firstConditionImage.image = [UIImage imageNamed:@"fair"];
-    _upcomingWeatherVC.secondConditionImage.image = [UIImage imageNamed:@"clear"];
-    _upcomingWeatherVC.thirdConditionImage.image = [UIImage imageNamed:@"fair"];
-    _upcomingWeatherVC.fourthConditionImage.image = [UIImage imageNamed:@"fair"];
-    _upcomingWeatherVC.fifthConditionImage.image = [UIImage imageNamed:@"fair"];
+    _upcomingWeatherVC.firstConditionImage.image = [self setupConditionImageWithCondition:[[self.weatherArray objectAtIndex:1] getCondition]];
+    _upcomingWeatherVC.secondConditionImage.image = [self setupConditionImageWithCondition:[[self.weatherArray objectAtIndex:2] getCondition]];
+    _upcomingWeatherVC.thirdConditionImage.image = [self setupConditionImageWithCondition:[[self.weatherArray objectAtIndex:3] getCondition]];
+    _upcomingWeatherVC.fourthConditionImage.image = [self setupConditionImageWithCondition:[[self.weatherArray objectAtIndex:4] getCondition]];
+    _upcomingWeatherVC.fifthConditionImage.image = [self setupConditionImageWithCondition:[[self.weatherArray objectAtIndex:5] getCondition]];
 }
 
 - (void)didReceiveMemoryWarning

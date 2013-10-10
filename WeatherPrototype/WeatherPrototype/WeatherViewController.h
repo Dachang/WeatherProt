@@ -34,4 +34,6 @@
 
 @property (strong, nonatomic) UpcomingWeatherViewController *upcomingWeatherVC;
 
+@property (strong, nonatomic) NSMutableArray *weatherArray;
+
 @end
