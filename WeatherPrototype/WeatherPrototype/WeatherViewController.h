@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UpcomingWeatherViewController.h"
+#import "WeatherModelList.h"
+
 @class WeatherModel;
 
 @interface WeatherViewController : UIViewController<UpcomingWeatherDelegate>
@@ -32,6 +34,7 @@
 @property (strong, nonatomic) UIImageView *conditionImage;
 @property (strong, nonatomic) UIImageView *percipImage;
 
+@property (strong, nonatomic) WeatherModelList *weatherList;
 @property (strong, nonatomic) UpcomingWeatherViewController *upcomingWeatherVC;
 
 @property (strong, nonatomic) NSMutableArray *weatherArray;

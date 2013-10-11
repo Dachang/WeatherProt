@@ -16,6 +16,7 @@
 @end
 
 @implementation WeatherViewController
+@synthesize weatherList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,9 @@
 #pragma mark - init weather object
 - (void)initWeather
 {
+    weatherList = [[WeatherModelList alloc] init];
+    [weatherList getWeatherWithSixDay];
+    
     _weatherArray = [[NSMutableArray alloc] init];
     
     [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear]];

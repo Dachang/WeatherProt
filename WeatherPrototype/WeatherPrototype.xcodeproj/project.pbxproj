@@ -61,6 +61,7 @@
 		13FAF00E1806D80000E1A9F8 /* motionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FAF00D1806D80000E1A9F8 /* motionBg@2x.png */; };
 		1C96FB89180569880058B5BC /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96FB88180569880058B5BC /* UILabel+Font.m */; };
 		1C96FB8C180569980058B5BC /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96FB8B180569980058B5BC /* UIView+Frame.m */; };
+		1CE91D4518083B1300FE0B46 /* WeatherModelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE91D4418083B1300FE0B46 /* WeatherModelList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		1C96FB88180569880058B5BC /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Font.m"; sourceTree = "<group>"; };
 		1C96FB8A180569980058B5BC /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		1C96FB8B180569980058B5BC /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		1CE91D4318083B1300FE0B46 /* WeatherModelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModelList.h; sourceTree = "<group>"; };
+		1CE91D4418083B1300FE0B46 /* WeatherModelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModelList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 			children = (
 				13BAFE7A18025F5400DB68FA /* WeatherModel.h */,
 				13BAFE7B18025F5400DB68FA /* WeatherModel.m */,
+				1CE91D4318083B1300FE0B46 /* WeatherModelList.h */,
+				1CE91D4418083B1300FE0B46 /* WeatherModelList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C96FB8C180569980058B5BC /* UIView+Frame.m in Sources */,
+				1CE91D4518083B1300FE0B46 /* WeatherModelList.m in Sources */,
 				13BAFE5518025BF800DB68FA /* AppDelegate.m in Sources */,
 				1C96FB89180569880058B5BC /* UILabel+Font.m in Sources */,
 				13BAFE7C18025F5400DB68FA /* WeatherModel.m in Sources */,
