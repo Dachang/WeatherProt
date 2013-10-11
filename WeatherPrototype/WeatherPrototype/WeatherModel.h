@@ -28,13 +28,14 @@ typedef enum WeatherType
     NSInteger _currentTemperature;
     NSInteger _highTemperature;
     NSInteger _lowTemperature;
-    NSString *_location;
-    NSString *_week;
     NSString *_date;
     NSString *_condition;
     NSString *_percip;
     WeatherType _weather;
 }
+
+@property (nonatomic) NSString *_location;
+@property (nonatomic) NSString *_week;
 
 - (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(WeatherType)weather;
 

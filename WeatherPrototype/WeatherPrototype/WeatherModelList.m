@@ -8,8 +8,24 @@
 
 #import "WeatherModelList.h"
 
+#define kShowWeatherDayTime 6
+
+@interface WeatherModelList()
+@property (strong, nonatomic) NSMutableArray *weatherArray;
+@end
+
 @implementation WeatherModelList
 @synthesize day1,day2,day3,day4,day5,day6;
+
+- (NSMutableArray *)weatherArray
+{
+    if (_weatherArray == nil) {
+        _weatherArray = [[NSMutableArray alloc] init];
+    }
+    return _weatherArray;
+}
+
+#pragma mark Public Method
 
 - (void)getWeatherWithSixDay
 {
@@ -49,12 +65,19 @@
         NSError *othererror;
         NSURLResponse *response;
         NSData *dataReply;
-        NSString *stringReply;
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: path]];
         [request setHTTPMethod: @"GET"];
         dataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
-        stringReply = [[NSString alloc] initWithData:dataReply encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",stringReply);
+        
+        NSError *error;
+        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:dataReply options:NSJSONReadingMutableLeaves error:&error];
+        NSDictionary *weatherinfo = [weatherDic objectForKey:@"weatherinfo"];
+        
+        for (int i=0; i<kShowWeatherDayTime; ++i) {
+            WeatherModel *model = [[WeatherModel alloc] initWithCurrentTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] highTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] lowTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] location:[weatherinfo objectForKey:@"city"] week:[weatherinfo objectForKey:@"week"] date:[weatherinfo objectForKey:@"date_y"] condition:[weatherinfo objectForKey:@"city"] percip:[weatherinfo objectForKey:@"cityid"] weather:0];
+            [self.weatherArray addObject:model];
+            NSLog(@"model info %@, %@",model._location,model._week);
+        }
     });
 }
 
