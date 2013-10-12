@@ -13,13 +13,6 @@
     NSString *_intString;
 }
 
-@property (nonatomic, weak) WeatherModel *day1;
-@property (nonatomic, weak) WeatherModel *day2;
-@property (nonatomic, weak) WeatherModel *day3;
-@property (nonatomic, weak) WeatherModel *day4;
-@property (nonatomic, weak) WeatherModel *day5;
-@property (nonatomic, weak) WeatherModel *day6;
-
 - (void)getWeatherWithSixDay;
 
 @end

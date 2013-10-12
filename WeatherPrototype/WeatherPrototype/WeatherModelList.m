@@ -81,4 +81,56 @@
     });
 }
 
+- (WeatherModel *)getModelOfDay:(int)index
+{
+    return [self.weatherArray objectAtIndex:index-1];
+}
+
+#pragma mark Private Method
+
+- (NSInteger )getCurrentTempFromData:(int)day
+{
+    
+}
+
+- (NSInteger )getHighTempFromData:(int)day
+{
+    
+}
+
+- (NSInteger )getLowTempFromData:(int)day
+{
+    
+}
+
+- (NSString *)getLocationFromData
+{
+    
+}
+
+- (void)getWeekFromData:(int)day
+{
+    
+}
+
+- (void)getDateFromData:(int)day
+{
+    
+}
+
+- (void)getConditionFromData:(int)day
+{
+    
+}
+
+- (void)getPercipFromData:(int)day
+{
+    
+}
+
+- (void)getWeatherFromData:(int)day
+{
+    
+}
+
 @end

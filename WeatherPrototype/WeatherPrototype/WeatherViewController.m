@@ -73,7 +73,7 @@
 {
     //current temperature today
     self.currentTemperature = [[UILabel alloc] init];
-    self.currentTemperature.text =[NSString stringWithFormat:@"%d", [[self.weatherArray objectAtIndex:0] getCurrentTemp]];
+    self.currentTemperature.text =[NSString stringWithFormat:@"%ld", (long)[[self.weatherArray objectAtIndex:0] getCurrentTemp]];
     self.currentTemperature.frame = CGRectMake((self.view.bounds.size.width - 130)/2, 50, 130, 130);
     [self.currentTemperature useRobotoThinFontWithSize:68 Color:[UIColor whiteColor]];
     [self.view addSubview:self.currentTemperature];
@@ -113,7 +113,7 @@
     self.highLowImage.frame = HIGH_LOW_TEMP_IMAGE_POSITION;
     [self.view addSubview:self.highLowImage];
     self.highLowTemperature = [[UILabel alloc] init];
-    self.highLowTemperature.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:0] getHighTemp],[[self.weatherArray objectAtIndex:0] getLowTemp]];
+    self.highLowTemperature.text = [NSString stringWithFormat:@"%ld/%ld℃", (long)[[self.weatherArray objectAtIndex:0] getHighTemp],(long)[[self.weatherArray objectAtIndex:0] getLowTemp]];
     self.highLowTemperature.frame = HIGH_LOW_TEMP_LABEL_POSITION;
     self.highLowTemperature.alpha = 0.65;
     [self.highLowTemperature useRobotoCondensedFontWithSize:8.5 Color:[UIColor whiteColor]];

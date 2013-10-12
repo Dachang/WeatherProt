@@ -9,7 +9,7 @@
 #import "WeatherModel.h"
 
 @implementation WeatherModel
-@synthesize _week,_location;
+@synthesize _week,_location,_date,_condition,_currentTemperature,_highTemperature,_lowTemperature,_percip;
 
 - (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather
 {
