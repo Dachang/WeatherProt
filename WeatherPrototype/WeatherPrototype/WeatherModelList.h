@@ -11,6 +11,8 @@
 
 @interface WeatherModelList : NSObject{
     NSString *_intString;
+    NSDictionary *currentWeatherinfo;
+    NSDictionary *detailWeatherinfo;
 }
 
 - (void)getWeatherWithSixDay;

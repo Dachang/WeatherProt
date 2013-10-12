@@ -15,7 +15,6 @@
 @end
 
 @implementation WeatherModelList
-@synthesize day1,day2,day3,day4,day5,day6;
 
 - (NSMutableArray *)weatherArray
 {
@@ -56,25 +55,26 @@
     }
     
     //中国天气网解析地址；
-    NSString *path=@"http://m.weather.com.cn/data/cityNumber.html";
+    NSString *detailPath=@"http://www.weather.com.cn/data/sk/cityNumber.html";     //实时信息
+    //     @"http://m.weather.com.cn/data/cityNumber.html"     //详细信息
     //将城市代码替换到天气解析网址cityNumber 部分！
-    path=[path stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+    detailPath=[detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
     
-    NSLog(@"path:%@",path);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSError *othererror;
         NSURLResponse *response;
         NSData *dataReply;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: path]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: detailPath]];
         [request setHTTPMethod: @"GET"];
         dataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
         
         NSError *error;
         NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:dataReply options:NSJSONReadingMutableLeaves error:&error];
-        NSDictionary *weatherinfo = [weatherDic objectForKey:@"weatherinfo"];
+        detailWeatherinfo = [weatherDic objectForKey:@"weatherinfo"];
+        NSLog(@"weatherinfo %@",detailWeatherinfo);
         
         for (int i=0; i<kShowWeatherDayTime; ++i) {
-            WeatherModel *model = [[WeatherModel alloc] initWithCurrentTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] highTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] lowTemp:[[weatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] location:[weatherinfo objectForKey:@"city"] week:[weatherinfo objectForKey:@"week"] date:[weatherinfo objectForKey:@"date_y"] condition:[weatherinfo objectForKey:@"city"] percip:[weatherinfo objectForKey:@"cityid"] weather:0];
+            WeatherModel *model = [[WeatherModel alloc] initWithCurrentTemp:[[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] highTemp:[self getHighTempFromData:i] lowTemp:[self getLowTempFromData:i] location:[self getLocationFromData] week:[self getWeekFromData:i] date:[self getDateFromData:i] condition:[self getConditionFromData:i] percip:[self getPercipFromData:i] weather:0];
             [self.weatherArray addObject:model];
             NSLog(@"model info %@, %@",model._location,model._week);
         }
@@ -88,49 +88,49 @@
 
 #pragma mark Private Method
 
-- (NSInteger )getCurrentTempFromData:(int)day
+- (NSInteger)getCurrentTempFromData:(int)day
 {
-    
+    return [[currentWeatherinfo objectForKey:@"temp"] integerValue];
 }
 
-- (NSInteger )getHighTempFromData:(int)day
+- (NSInteger)getHighTempFromData:(int)day
 {
-    
+    return [[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] integerValue];
 }
 
-- (NSInteger )getLowTempFromData:(int)day
+- (NSInteger)getLowTempFromData:(int)day
 {
-    
+    return [[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] integerValue];
 }
 
 - (NSString *)getLocationFromData
 {
-    
+    return [detailWeatherinfo objectForKey:@"city"];
 }
 
-- (void)getWeekFromData:(int)day
+- (NSString *)getWeekFromData:(int)day
 {
-    
+    return [detailWeatherinfo objectForKey:@"week"];
 }
 
-- (void)getDateFromData:(int)day
+- (NSString *)getDateFromData:(int)day
 {
-    
+    return [detailWeatherinfo objectForKey:@"date_y"];
 }
 
-- (void)getConditionFromData:(int)day
+- (NSString *)getConditionFromData:(int)day
 {
-    
+    return [detailWeatherinfo objectForKey:@"city"];
 }
 
-- (void)getPercipFromData:(int)day
+- (NSString *)getPercipFromData:(int)day
 {
-    
+    return [currentWeatherinfo objectForKey:@"SD"];
 }
 
-- (void)getWeatherFromData:(int)day
+- (NSString *)getWeatherFromData:(int)day
 {
-    
+    return [detailWeatherinfo objectForKey:@"cityid"];
 }
 
 @end
