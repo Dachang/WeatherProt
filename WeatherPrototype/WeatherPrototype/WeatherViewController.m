@@ -32,6 +32,7 @@
     [super viewDidLoad];
 	[self setupBackgroundImage];
     [self setupWeatherInfo];
+    [self setupLeftPanelButton];
     [self initUpcomingWeatherVC];
 }
 
@@ -39,7 +40,6 @@
 - (void)initWeather
 {
     weatherList = [[WeatherModelList alloc] init];
-    [weatherList getWeatherWithSixDay];
     
     _weatherArray = [[NSMutableArray alloc] init];
     
@@ -208,6 +208,21 @@
     UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
     group.motionEffects = @[xMotion, yMotion];
     [view addMotionEffect:group];
+}
+
+#pragma mark - left panel Button
+
+- (void)setupLeftPanelButton
+{
+    _leftPanelButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 30, 22, 22)];
+    [_leftPanelButton setImage:[UIImage imageNamed:@"settingsButton"] forState:UIControlStateNormal];
+    [_leftPanelButton addTarget:self action:@selector(leftPanelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_leftPanelButton];
+}
+
+- (void)leftPanelButtonPressed
+{
+    //add
 }
 
 #pragma mark - Init Upcoming Weather ViewController

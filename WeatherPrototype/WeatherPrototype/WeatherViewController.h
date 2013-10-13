@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "UpcomingWeatherViewController.h"
+#import "LeftPanelViewController.h"
 #import "WeatherModelList.h"
 
 @class WeatherModel;
 
-@interface WeatherViewController : UIViewController<UpcomingWeatherDelegate>
+@protocol WeatherViewControllerDelegate <NSObject>
+
+- (void)moveViewRight;
+- (void)moveViewToOriginalPosition;
+
+@end
+
+@interface WeatherViewController : UIViewController<UpcomingWeatherDelegate, SettingsViewControllerDelegate>
 
 @property (strong, nonatomic) WeatherModel *weather;
 @property (strong, nonatomic) UIImageView *backgroundImage;
@@ -33,6 +41,9 @@
 @property (strong, nonatomic) UIImageView *highLowImage;
 @property (strong, nonatomic) UIImageView *conditionImage;
 @property (strong, nonatomic) UIImageView *percipImage;
+
+@property (strong, nonatomic) UIButton *leftPanelButton;
+@property (nonatomic, assign) id<WeatherViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) WeatherModelList *weatherList;
 @property (strong, nonatomic) UpcomingWeatherViewController *upcomingWeatherVC;

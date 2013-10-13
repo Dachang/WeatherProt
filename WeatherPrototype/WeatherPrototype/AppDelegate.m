@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WeatherViewController.h"
+#import "BaseViewController.h"
 
 @implementation AppDelegate
 
@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[WeatherViewController alloc] init];
+    self.viewController = [[BaseViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
