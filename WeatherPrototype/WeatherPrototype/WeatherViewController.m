@@ -43,7 +43,7 @@
     
     _weatherArray = [[NSMutableArray alloc] init];
     
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:21 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear]];
+    [_weatherArray addObject:[weatherList getModelOfDay:1]];
     [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:32 lowTemp:25 location:@"Shanghai, CH" week:@"WED" date:@"2013-10-9" condition:@"FAIR" percip:@"-" weather:MidRain]];
     [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:30 lowTemp:23 location:@"Shanghai, CH" week:@"THUR" date:@"2013-10-10" condition:@"CLEAR" percip:@"-" weather:Thunder]];
     [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:33 lowTemp:27 location:@"Shanghai, CH" week:@"FRI" date:@"2013-10-11" condition:@"FAIR" percip:@"-" weather:Overcast]];

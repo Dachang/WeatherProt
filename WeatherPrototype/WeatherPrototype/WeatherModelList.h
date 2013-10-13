@@ -16,5 +16,6 @@
 }
 
 - (void)getWeatherWithSixDay;
+- (WeatherModel *)getModelOfDay:(int)index;
 
 @end

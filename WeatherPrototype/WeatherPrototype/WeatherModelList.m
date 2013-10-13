@@ -56,9 +56,11 @@
     
     //中国天气网解析地址；
     NSString *detailPath=@"http://www.weather.com.cn/data/sk/cityNumber.html";     //实时信息
-    //     @"http://m.weather.com.cn/data/cityNumber.html"     //详细信息
+    //         //详细信息
     //将城市代码替换到天气解析网址cityNumber 部分！
+    NSLog(@"path1 ----- %@",detailPath);
     detailPath=[detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+    NSLog(@"path2 ----- %@",detailPath);
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSError *othererror;
