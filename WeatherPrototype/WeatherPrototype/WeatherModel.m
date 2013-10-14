@@ -11,7 +11,7 @@
 @implementation WeatherModel
 @synthesize _week,_location,_date,_condition,_currentTemperature,_highTemperature,_lowTemperature,_percip;
 
-- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather
+- (id)initWithCurrentTemp:(NSString *)currentTemp highTemp:(NSString *)highTemp lowTemp:(NSString *)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather
 {
     if(self = [super init])
     {
@@ -28,26 +28,26 @@
     return self;
 }
 
-+ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather
++ (id)sharedWeatherWithCurrentTemp:(NSString *)currentTemp highTemp:(NSString *)highTemp lowTemp:(NSString *)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather
 {
     return [[WeatherModel alloc] initWithCurrentTemp:currentTemp highTemp:highTemp lowTemp:lowTemp location:location week:week date:date condition:condition percip:percip weather:weather];
 }
 
-- (NSInteger)getCurrentTemp { return _currentTemperature; }
+- (NSString *)getCurrentTemp { return _currentTemperature; }
 
-- (NSInteger)getHighTemp { return _highTemperature; }
+- (NSString *)getHighTemp { return _highTemperature; }
 
-- (NSInteger)getLowTemp { return _lowTemperature; }
+- (NSString *)getLowTemp { return _lowTemperature; }
 
-- (NSString*)getLocation { return _location; }
+- (NSString *)getLocation { return _location; }
 
-- (NSString*)getWeek { return _week; }
+- (NSString *)getWeek { return _week; }
 
-- (NSString*)getDate { return _date; }
+- (NSString *)getDate { return _date; }
 
-- (NSString*)getCondition { return _condition; }
+- (NSString *)getCondition { return _condition; }
 
-- (NSString*)getPercip { return _percip; }
+- (NSString *)getPercip { return _percip; }
 
 - (WeatherType)getWeather { return _weather; }
 

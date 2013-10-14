@@ -28,27 +28,27 @@ typedef enum WeatherType
     WeatherType _weather;
 }
 
-@property (nonatomic) NSInteger _currentTemperature;
-@property (nonatomic) NSInteger _highTemperature;
-@property (nonatomic) NSInteger _lowTemperature;
+@property (nonatomic) NSString *_currentTemperature;
+@property (nonatomic) NSString *_highTemperature;
+@property (nonatomic) NSString *_lowTemperature;
 @property (nonatomic) NSString *_location;
 @property (nonatomic) NSString *_week;
 @property (nonatomic) NSString *_date;
 @property (nonatomic) NSString *_condition;
 @property (nonatomic) NSString *_percip;
 
-- (id)initWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(WeatherType)weather;
+- (id)initWithCurrentTemp:(NSString *)currentTemp highTemp:(NSString *)highTemp lowTemp:(NSString *)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString*)condition percip:(NSString *)percip weather:(WeatherType)weather;
 
-+ (id)sharedWeatherWithCurrentTemp:(NSInteger)currentTemp highTemp:(NSInteger)highTemp lowTemp:(NSInteger)lowTemp location:(NSString*)location week:(NSString*)week date:(NSString*)date condition:(NSString*)condition percip:(NSString*)percip weather:(WeatherType)weather;
++ (id)sharedWeatherWithCurrentTemp:(NSString *)currentTemp highTemp:(NSString *)highTemp lowTemp:(NSString *)lowTemp location:(NSString *)location week:(NSString *)week date:(NSString *)date condition:(NSString *)condition percip:(NSString *)percip weather:(WeatherType)weather;
 
-- (NSInteger)getCurrentTemp;
-- (NSInteger)getHighTemp;
-- (NSInteger)getLowTemp;
-- (NSString*)getLocation;
-- (NSString*)getWeek;
-- (NSString*)getDate;
-- (NSString*)getCondition;
-- (NSString*)getPercip;
+- (NSString *)getCurrentTemp;
+- (NSString *)getHighTemp;
+- (NSString *)getLowTemp;
+- (NSString *)getLocation;
+- (NSString *)getWeek;
+- (NSString *)getDate;
+- (NSString *)getCondition;
+- (NSString *)getPercip;
 - (WeatherType)getWeather;
 
 @end

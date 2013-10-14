@@ -48,12 +48,12 @@
     
     _weatherArray = [[NSMutableArray alloc] init];
     
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:27 highTemp:33 lowTemp:27 location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear]];
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:32 lowTemp:25 location:@"Shanghai, CH" week:@"WED" date:@"2013-10-9" condition:@"FAIR" percip:@"-" weather:MidRain]];
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:30 lowTemp:23 location:@"Shanghai, CH" week:@"THUR" date:@"2013-10-10" condition:@"CLEAR" percip:@"-" weather:Thunder]];
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:33 lowTemp:27 location:@"Shanghai, CH" week:@"FRI" date:@"2013-10-11" condition:@"FAIR" percip:@"-" weather:Overcast]];
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:34 lowTemp:25 location:@"Shanghai, CH" week:@"SAT" date:@"2013-10-12" condition:@"FAIR" percip:@"-" weather:Cloudy]];
-    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:0 highTemp:36 lowTemp:27 location:@"Shanghai, CH" week:@"SUN" date:@"2013-10-13" condition:@"FAIR" percip:@"-" weather:Clear]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"27" highTemp:@"33" lowTemp:@"27" location:@"Shanghai, CH" week:@"TUE" date:@"2013-10-8" condition:@"CLEAR" percip:@"65%" weather:Clear]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"0" highTemp:@"32" lowTemp:@"25" location:@"Shanghai, CH" week:@"WED" date:@"2013-10-9" condition:@"FAIR" percip:@"-" weather:MidRain]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"0" highTemp:@"30" lowTemp:@"23" location:@"Shanghai, CH" week:@"THUR" date:@"2013-10-10" condition:@"CLEAR" percip:@"-" weather:Thunder]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"0" highTemp:@"33" lowTemp:@"27" location:@"Shanghai, CH" week:@"FRI" date:@"2013-10-11" condition:@"FAIR" percip:@"-" weather:Overcast]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"0" highTemp:@"34" lowTemp:@"25" location:@"Shanghai, CH" week:@"SAT" date:@"2013-10-12" condition:@"FAIR" percip:@"-" weather:Cloudy]];
+    [_weatherArray addObject:[WeatherModel sharedWeatherWithCurrentTemp:@"0" highTemp:@"36" lowTemp:@"27" location:@"Shanghai, CH" week:@"SUN" date:@"2013-10-13" condition:@"FAIR" percip:@"-" weather:Clear]];
 }
 
 #pragma mark - setup images
@@ -264,11 +264,11 @@
 
 - (void)setupHighLowTempLabel
 {
-    _upcomingWeatherVC.firstHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:1] getHighTemp], [[self.weatherArray objectAtIndex:1] getLowTemp]];
-    _upcomingWeatherVC.secondHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:2] getHighTemp], [[self.weatherArray objectAtIndex:2] getLowTemp]];
-    _upcomingWeatherVC.thirdHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:3] getHighTemp], [[self.weatherArray objectAtIndex:3] getLowTemp]];
-    _upcomingWeatherVC.fourthHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:4] getHighTemp], [[self.weatherArray objectAtIndex:4] getLowTemp]];
-    _upcomingWeatherVC.fifthHighLowLabel.text = [NSString stringWithFormat:@"%d/%d℃", [[self.weatherArray objectAtIndex:5] getHighTemp], [[self.weatherArray objectAtIndex:5] getLowTemp]];
+    _upcomingWeatherVC.firstHighLowLabel.text = [NSString stringWithFormat:@"%@/%@℃", [[self.weatherArray objectAtIndex:1] getHighTemp], [[self.weatherArray objectAtIndex:1] getLowTemp]];
+    _upcomingWeatherVC.secondHighLowLabel.text = [NSString stringWithFormat:@"%@/%@℃", [[self.weatherArray objectAtIndex:2] getHighTemp], [[self.weatherArray objectAtIndex:2] getLowTemp]];
+    _upcomingWeatherVC.thirdHighLowLabel.text = [NSString stringWithFormat:@"%@/%@℃", [[self.weatherArray objectAtIndex:3] getHighTemp], [[self.weatherArray objectAtIndex:3] getLowTemp]];
+    _upcomingWeatherVC.fourthHighLowLabel.text = [NSString stringWithFormat:@"%@/%@℃", [[self.weatherArray objectAtIndex:4] getHighTemp], [[self.weatherArray objectAtIndex:4] getLowTemp]];
+    _upcomingWeatherVC.fifthHighLowLabel.text = [NSString stringWithFormat:@"%@/%@℃", [[self.weatherArray objectAtIndex:5] getHighTemp], [[self.weatherArray objectAtIndex:5] getLowTemp]];
 }
 
 - (void)setupConditionImage
@@ -292,8 +292,10 @@
 {
     NSLog(@"setWeatherInfo");
     [weatherList addWeatherModelToArray];
-    [weatherList getModelOfDay:1];
-    NSLog(@"location %@,temp %@",(WeatherModel *)[weatherList getModelOfDay:1]._location,(WeatherModel *)[weatherList getModelOfDay:1]._week);
+    for (int i=1; i<7; ++i) {
+        [weatherList getModelOfDay:i];
+        NSLog(@"%d currenttemp %@,hightemp %@",i,(WeatherModel *)[weatherList getModelOfDay:i]._currentTemperature,(WeatherModel *)[weatherList getModelOfDay:i]._lowTemperature);
+    }
 }
 
 #pragma mark WeatherInfoDelegate

@@ -109,19 +109,19 @@
 
 #pragma mark Private Method
 
-- (NSInteger)getCurrentTemp
+- (NSString *)getCurrentTemp
 {
-    return [[currentWeatherinfo objectForKey:@"temp"] integerValue];
+    return [currentWeatherinfo objectForKey:@"temp"];
 }
 
-- (NSInteger)getHighTempFromData:(int)day
+- (NSString *)getHighTempFromData:(int)day
 {
-    return [[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] integerValue];
+    return [[[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] componentsSeparatedByString:@"~"] objectAtIndex:0];
 }
 
-- (NSInteger)getLowTempFromData:(int)day
+- (NSString *)getLowTempFromData:(int)day
 {
-    return [[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] integerValue];
+    return [[[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",day]]] componentsSeparatedByString:@"~"] objectAtIndex:1];
 }
 
 - (NSString *)getLocationFromData
