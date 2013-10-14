@@ -25,7 +25,6 @@
 @property (weak, nonatomic) id<WeatherInfoDelegate> delegate;
 
 - (void)getWeatherWithLocation;
-- (void)getWeatherWithCityID:(int)cityID;
 - (WeatherModel *)getModelOfDay:(int)index;
 - (void)addWeatherModelToArray;
 

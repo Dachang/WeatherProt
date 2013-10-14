@@ -26,11 +26,6 @@
 
 #pragma mark Public Method
 
-- (void)getWeatherWithCityID:(int)cityID
-{
-    
-}
-
 - (void)getWeatherWithLocation
 {
     //解析网址通过ip 获取城市天气代码
@@ -166,36 +161,32 @@
     {
         num = num - 7;
     }
-    if (num == 1)
-    {
-        return @"Mon";
+    switch (num) {
+        case 1:
+            return @"MON";
+            break;
+        case 2:
+            return @"TUES";
+            break;
+        case 3:
+            return @"WED";
+            break;
+        case 4:
+            return @"THUR";
+            break;
+        case 5:
+            return @"FRI";
+            break;
+        case 6:
+            return @"SAT";
+            break;
+        case 7:
+            return @"SUN";
+            break;
+        default:
+            return @"WRONG";
+            break;
     }
-    else if (num == 2)
-    {
-        return @"Tues";
-    }
-    else if (num == 3)
-    {
-        return @"Wed";
-    }
-    else if (num == 4)
-    {
-        return @"Thur";
-    }
-    else if (num == 5)
-    {
-        return @"Fri";
-    }
-    else if (num == 6)
-    {
-        return @"Sat";
-    }
-    else if (num == 7)
-    {
-        return @"Sun";
-    }
-    else
-        return @"wrong!!!";
 }
 
 - (NSString *)getDateFromData:(int)day
@@ -215,7 +206,7 @@
 
 - (NSString *)getWeatherFromData:(int)day
 {
-    return [detailWeatherinfo objectForKey:@"cityid"];
+    return [detailWeatherinfo objectForKey:[NSString stringWithFormat:@"weather%d",day]];
 }
 
 @end
