@@ -15,6 +15,4 @@
 @property (nonatomic, strong) WeatherViewController *weatherVC;
 @property (nonatomic, strong) LeftPanelViewController *leftPanelVC;
 
-@property (nonatomic, assign) BOOL showingLeftPanelVC;
-
 @end

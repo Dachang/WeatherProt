@@ -12,12 +12,15 @@
 #define LEFT_PANEL_VIEW_TAG 2
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 60
+#define MINIMUM_STOP_OFFSET 5
 
 @interface BaseViewController ()
 
+//whether left panel view was already appeared
+@property (nonatomic, assign) BOOL showingLeftPanelVC;
+//whether the view should move right (show left panel) or move back to original position
 @property (nonatomic ,assign) BOOL showPanel;
 @property (nonatomic ,assign) CGPoint preVelocity;
-@property (nonatomic, assign) BOOL lockView;
 
 @end
 
@@ -173,7 +176,7 @@
         }
         else
         {
-            if(_showingLeftPanelVC)
+            if(_showingLeftPanelVC && self.weatherVC.view.frame.origin.x > MINIMUM_STOP_OFFSET)
             {
                 _showPanel = abs([sender view].center.x - _weatherVC.view.frame.size.width/2) > _weatherVC.view.frame.size.width/2;
                 
