@@ -131,7 +131,71 @@
 
 - (NSString *)getWeekFromData:(int)day
 {
-    return [detailWeatherinfo objectForKey:@"week"];
+    NSString *Today = [detailWeatherinfo objectForKey:@"week"];
+    int num = 0;
+    if ([Today isEqualToString:@"星期一"])
+    {
+        num = 1;
+    }
+    else if ([Today isEqualToString:@"星期二"])
+    {
+        num = 2;
+    }
+    else if ([Today isEqualToString:@"星期三"])
+    {
+        num = 3;
+    }
+    else if ([Today isEqualToString:@"星期四"])
+    {
+        num = 4;
+    }
+    else if ([Today isEqualToString:@"星期五"])
+    {
+        num = 5;
+    }
+    else if ([Today isEqualToString:@"星期六"])
+    {
+        num = 6;
+    }
+    else if ([Today isEqualToString:@"星期日"])
+    {
+        num = 7;
+    }
+    num = num + day - 1;
+    if (num > 7)
+    {
+        num = num - 7;
+    }
+    if (num == 1)
+    {
+        return @"Mon";
+    }
+    else if (num == 2)
+    {
+        return @"Tues";
+    }
+    else if (num == 3)
+    {
+        return @"Wed";
+    }
+    else if (num == 4)
+    {
+        return @"Thur";
+    }
+    else if (num == 5)
+    {
+        return @"Fri";
+    }
+    else if (num == 6)
+    {
+        return @"Sat";
+    }
+    else if (num == 7)
+    {
+        return @"Sun";
+    }
+    else
+        return @"wrong!!!";
 }
 
 - (NSString *)getDateFromData:(int)day
