@@ -39,7 +39,13 @@
 #pragma mark - init weather object
 - (void)initWeather
 {
+    detailInfoFinished = NO;
+    currentInfoFinished = NO;
+    
     weatherList = [[WeatherModelList alloc] init];
+    weatherList.delegate = self;
+    [weatherList getWeatherWithSixDay];
+    //[weatherList getModelOfDay:1];
     
     _weatherArray = [[NSMutableArray alloc] init];
     
@@ -279,6 +285,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark WeatherInfoDelegate
+
+- (void)getCurrentInfoFinished
+{
+    NSLog(@"get current info");
+    currentInfoFinished = YES;
+}
+
+- (void)getDetailInfoFinished
+{
+    NSLog(@"get detail info");
+    detailInfoFinished = YES;
 }
 
 @end

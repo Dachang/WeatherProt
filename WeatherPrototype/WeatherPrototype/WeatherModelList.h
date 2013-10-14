@@ -9,11 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "WeatherModel.h"
 
+@protocol WeatherInfoDelegate
+
+- (void)getCurrentInfoFinished;
+- (void)getDetailInfoFinished;
+
+@end
+
 @interface WeatherModelList : NSObject{
     NSString *_intString;
     NSDictionary *currentWeatherinfo;
     NSDictionary *detailWeatherinfo;
 }
+
+@property (weak, nonatomic) id<WeatherInfoDelegate> delegate;
 
 - (void)getWeatherWithSixDay;
 - (WeatherModel *)getModelOfDay:(int)index;

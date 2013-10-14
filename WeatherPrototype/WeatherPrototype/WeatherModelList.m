@@ -36,8 +36,6 @@
     NSError *error;
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
-    NSLog(@"------------%@",jsonString);
-    
     // 得到城市代码字符串，截取出城市代码
     NSString *Str;
     for (int i = 0; i<=[jsonString length]; i++)
@@ -55,31 +53,40 @@
     }
     
     //中国天气网解析地址；
-    NSString *detailPath=@"http://www.weather.com.cn/data/sk/cityNumber.html";     //实时信息
-    //         //详细信息
+    NSString *detailPath = @"http://m.weather.com.cn/data/cityNumber.html";     //实时信息
+    NSString *currentPath =  @"http://www.weather.com.cn/data/sk/cityNumber.html";        //详细信息
     //将城市代码替换到天气解析网址cityNumber 部分！
-    NSLog(@"path1 ----- %@",detailPath);
-    detailPath=[detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
-    NSLog(@"path2 ----- %@",detailPath);
+    detailPath = [detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+    currentPath = [currentPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    dispatch_queue_t detailQueue = dispatch_queue_create("Load Detail Info", NULL);
+    dispatch_async(detailQueue, ^{
         NSError *othererror;
         NSURLResponse *response;
-        NSData *dataReply;
+        NSData *detailDataReply;
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: detailPath]];
         [request setHTTPMethod: @"GET"];
-        dataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
+        detailDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
         
         NSError *error;
-        NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:dataReply options:NSJSONReadingMutableLeaves error:&error];
-        detailWeatherinfo = [weatherDic objectForKey:@"weatherinfo"];
-        NSLog(@"weatherinfo %@",detailWeatherinfo);
+        NSDictionary *detailWeatherDic = [NSJSONSerialization JSONObjectWithData:detailDataReply options:NSJSONReadingMutableLeaves error:&error];
+        detailWeatherinfo = [detailWeatherDic objectForKey:@"weatherinfo"];
+        [self.delegate getDetailInfoFinished];
+    });
+    
+    dispatch_queue_t currentQueue = dispatch_queue_create("Load Current Info", NULL);
+    dispatch_async(currentQueue, ^{
+        NSError *othererror;
+        NSURLResponse *response;
+        NSData *currentDataReply;
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: currentPath]];
+        [request setHTTPMethod: @"GET"];
+        currentDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
         
-        for (int i=0; i<kShowWeatherDayTime; ++i) {
-            WeatherModel *model = [[WeatherModel alloc] initWithCurrentTemp:[[detailWeatherinfo objectForKey:[@"temp" stringByAppendingString:[NSString stringWithFormat:@"%d",i]]] integerValue] highTemp:[self getHighTempFromData:i] lowTemp:[self getLowTempFromData:i] location:[self getLocationFromData] week:[self getWeekFromData:i] date:[self getDateFromData:i] condition:[self getConditionFromData:i] percip:[self getPercipFromData:i] weather:0];
-            [self.weatherArray addObject:model];
-            NSLog(@"model info %@, %@",model._location,model._week);
-        }
+        NSError *error;
+        NSDictionary *currentWeatherDic = [NSJSONSerialization JSONObjectWithData:currentDataReply options:NSJSONReadingMutableLeaves error:&error];
+        currentWeatherinfo = [currentWeatherDic objectForKey:@"weatherinfo"];
+        [self.delegate getCurrentInfoFinished];
     });
 }
 

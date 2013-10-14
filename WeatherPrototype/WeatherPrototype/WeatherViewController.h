@@ -20,7 +20,10 @@
 
 @end
 
-@interface WeatherViewController : UIViewController<UpcomingWeatherDelegate, SettingsViewControllerDelegate>
+@interface WeatherViewController : UIViewController<UpcomingWeatherDelegate, SettingsViewControllerDelegate,WeatherInfoDelegate>{
+    BOOL detailInfoFinished;
+    BOOL currentInfoFinished;
+}
 
 @property (strong, nonatomic) WeatherModel *weather;
 @property (strong, nonatomic) UIImageView *backgroundImage;
