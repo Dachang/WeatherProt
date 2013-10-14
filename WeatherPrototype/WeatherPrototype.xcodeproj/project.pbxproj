@@ -195,6 +195,13 @@
 			path = TinyWeatherIcon;
 			sourceTree = "<group>";
 		};
+		132DF383180C3B9B00C70059 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
 		13BAFE3618025BF800DB68FA = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +236,7 @@
 		13BAFE4A18025BF800DB68FA /* WeatherPrototype */ = {
 			isa = PBXGroup;
 			children = (
+				132DF383180C3B9B00C70059 /* Delegate */,
 				1C96FB86180569690058B5BC /* Category */,
 				1303F0C0180440760046E720 /* View */,
 				13BAFEB81802B58500DB68FA /* Controllers */,

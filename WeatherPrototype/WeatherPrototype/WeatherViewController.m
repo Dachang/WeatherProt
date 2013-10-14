@@ -60,10 +60,11 @@
 
 - (void)setupBackgroundImage
 {
-    self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"motionBg"]];
-    self.backgroundImage.frame = CGRectMake(0 - 40, 0 - 80, self.backgroundImage.bounds.size.width, self.backgroundImage.bounds.size.height);
+    self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    self.backgroundImage.frame = CGRectMake(0, 0, self.backgroundImage.bounds.size.width, self.backgroundImage.bounds.size.height);
     [self.view addSubview:self.backgroundImage];
-    [self addMotionEffectToView:self.backgroundImage magnitude:40.0];
+    //暂时去掉motion effect
+//    [self addMotionEffectToView:self.backgroundImage magnitude:40.0];
     self.dashboardBackgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardBG"]];
     self.dashboardBackgroundImage.frame = CGRectMake(0, self.view.bounds.size.height - self.dashboardBackgroundImage.bounds.size.height, self.dashboardBackgroundImage.bounds.size.width, self.dashboardBackgroundImage.bounds.size.height);
     [self.view addSubview:self.dashboardBackgroundImage];
@@ -221,13 +222,28 @@
 {
     _leftPanelButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 30, 22, 22)];
     [_leftPanelButton setImage:[UIImage imageNamed:@"settingsButton"] forState:UIControlStateNormal];
-    [_leftPanelButton addTarget:self action:@selector(leftPanelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_leftPanelButton addTarget:self action:@selector(leftPanelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_leftPanelButton];
 }
 
-- (void)leftPanelButtonPressed
+- (void)leftPanelButtonPressed: (id)sender
 {
-    //add
+    UIButton* button = sender;
+    
+    switch (button.tag) {
+        case 0:
+        {
+            [_delegate moveViewRight];
+            break;
+        }
+        case 1:
+        {
+            [_delegate moveViewToOriginalPosition];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - Init Upcoming Weather ViewController

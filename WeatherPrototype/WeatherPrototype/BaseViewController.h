@@ -13,8 +13,8 @@
 @interface BaseViewController : UIViewController <UIGestureRecognizerDelegate, WeatherViewControllerDelegate>
 
 @property (nonatomic, strong) WeatherViewController *weatherVC;
-@property (nonatomic, strong) LeftPanelViewController *settingsVC;
+@property (nonatomic, strong) LeftPanelViewController *leftPanelVC;
 
-@property (nonatomic, assign) BOOL showingSettingsVC;
+@property (nonatomic, assign) BOOL showingLeftPanelVC;
 
 @end
