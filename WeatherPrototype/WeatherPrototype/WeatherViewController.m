@@ -220,7 +220,7 @@
 
 - (void)setupLeftPanelButton
 {
-    _leftPanelButton = [[UIButton alloc] initWithFrame:CGRectMake(15, 30, 22, 22)];
+    _leftPanelButton = [[UIButton alloc] initWithFrame:LEFT_PANEL_BUTTON_POSITION];
     [_leftPanelButton setImage:[UIImage imageNamed:@"settingsButton"] forState:UIControlStateNormal];
     [_leftPanelButton addTarget:self action:@selector(leftPanelButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_leftPanelButton];

@@ -186,6 +186,12 @@
     }
 }
 
+#pragma mark - status bar
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {

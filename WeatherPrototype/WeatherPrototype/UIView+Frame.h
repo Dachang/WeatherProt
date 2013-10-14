@@ -24,6 +24,8 @@
 #define CONDITION_LABEL_POSITION CGRectMake(227, 338, 40, 6)
 #define PERCIP_IMAGE_POSITION CGRectMake(267, 338, 25, 6)
 #define PERCIP_LABEL_POSITION CGRectMake(297, 338, 40, 6)
+//left panel button
+#define LEFT_PANEL_BUTTON_POSITION CGRectMake(15, 15, 22, 22)
 
 @interface UIView (Frame)
 
