@@ -44,7 +44,7 @@
     
     weatherList = [[WeatherModelList alloc] init];
     weatherList.delegate = self;
-    [weatherList getWeatherWithSixDay];
+    [weatherList getWeatherWithLocation];
     
     _weatherArray = [[NSMutableArray alloc] init];
     
