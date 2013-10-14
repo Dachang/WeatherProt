@@ -15,6 +15,10 @@
 
 @interface BaseViewController ()
 
+@property (nonatomic ,assign) BOOL showPanel;
+@property (nonatomic ,assign) CGPoint preVelocity;
+@property (nonatomic, assign) BOOL lockView;
+
 @end
 
 @implementation BaseViewController
@@ -43,6 +47,7 @@
     [self.view addSubview:self.weatherVC.view];
     [self addChildViewController:self.weatherVC];
     [self.weatherVC didMoveToParentViewController:self];
+    [self setUpGestures];
 }
 
 #pragma mark - reset main view
@@ -84,7 +89,6 @@
 
 - (void)moveViewRight
 {
-    NSLog(@"right");
     UIView *childView = [self getLeftPanelView];
     [self.view sendSubviewToBack:childView];
     
@@ -100,7 +104,6 @@
 
 - (void)moveViewToOriginalPosition
 {
-    NSLog(@"reset");
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         _weatherVC.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width);
     } completion:^(BOOL finished){
@@ -110,6 +113,79 @@
         }
     }];
 }
+
+#pragma mark - gesture handler
+
+- (void)setUpGestures
+{
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveView:)];
+    [panGesture setMinimumNumberOfTouches:1];
+    [panGesture setMaximumNumberOfTouches:1];
+    [panGesture setDelegate:self];
+    
+    [_weatherVC.view addGestureRecognizer:panGesture];
+}
+
+- (void)moveView: (id)sender
+{
+    [[[(UIPanGestureRecognizer*)sender view] layer] removeAllAnimations];
+    
+    CGPoint translatePoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
+    CGPoint velocity = [(UIPanGestureRecognizer*)sender velocityInView:[sender view]];
+    //STATE_BEGIN
+    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan)
+    {
+        UIView *childView = nil;
+        if(velocity.x > 0)
+        {
+            childView = [self getLeftPanelView];
+        }
+        
+        [self.view sendSubviewToBack:childView];
+        [[sender view] bringSubviewToFront:[(UIPanGestureRecognizer*) sender view]];
+    }
+    //STATE_END
+    if ([(UIPanGestureRecognizer*) sender state] == UIGestureRecognizerStateEnded)
+    {
+        if(!_showPanel)
+        {
+            [self moveViewToOriginalPosition];
+        }
+        else
+        {
+            if(_showingLeftPanelVC)
+            {
+                [self moveViewRight];
+            }
+        }
+    }
+    //STATE_CHANGE
+    if ([(UIPanGestureRecognizer*) sender state] == UIGestureRecognizerStateChanged)
+    {
+        if(velocity.x > 0)
+        {
+            _showPanel = abs([sender view].center.x - _weatherVC.view.frame.size.width/2) > _weatherVC.view.frame.size.width/2;
+            
+            [sender view].center = CGPointMake([sender view].center.x + translatePoint.x, [sender view].center.y);
+            [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0, 0) inView:self.view];
+            
+            _preVelocity = velocity;
+        }
+        else
+        {
+            if(_showingLeftPanelVC)
+            {
+                _showPanel = abs([sender view].center.x - _weatherVC.view.frame.size.width/2) > _weatherVC.view.frame.size.width/2;
+                
+                [sender view].center = CGPointMake([sender view].center.x + translatePoint.x, [sender view].center.y);
+                [(UIPanGestureRecognizer*)sender setTranslation:CGPointMake(0, 0) inView:self.view];
+                
+                _preVelocity = velocity;
+            }
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
