@@ -45,7 +45,6 @@
     weatherList = [[WeatherModelList alloc] init];
     weatherList.delegate = self;
     [weatherList getWeatherWithSixDay];
-    //[weatherList getModelOfDay:1];
     
     _weatherArray = [[NSMutableArray alloc] init];
     
@@ -287,18 +286,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Mini Function
+
+- (void)setWeatherInfo
+{
+    NSLog(@"setWeatherInfo");
+    [weatherList addWeatherModelToArray];
+    [weatherList getModelOfDay:1];
+    NSLog(@"location %@,temp %@",(WeatherModel *)[weatherList getModelOfDay:1]._location,(WeatherModel *)[weatherList getModelOfDay:1]._week);
+}
+
 #pragma mark WeatherInfoDelegate
 
 - (void)getCurrentInfoFinished
 {
     NSLog(@"get current info");
     currentInfoFinished = YES;
+    if (currentInfoFinished && detailInfoFinished) {
+        [self setWeatherInfo];
+    }
 }
 
 - (void)getDetailInfoFinished
 {
     NSLog(@"get detail info");
     detailInfoFinished = YES;
+    if (currentInfoFinished && detailInfoFinished) {
+        [self setWeatherInfo];
+    }
 }
 
 @end

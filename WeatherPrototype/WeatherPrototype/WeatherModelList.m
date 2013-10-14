@@ -95,9 +95,17 @@
     return [self.weatherArray objectAtIndex:index-1];
 }
 
+- (void)addWeatherModelToArray
+{
+    for (int i=0; i<kShowWeatherDayTime; ++i) {
+        WeatherModel *model = [[WeatherModel alloc] initWithCurrentTemp:[self getCurrentTemp] highTemp:[self getHighTempFromData:i+1] lowTemp:[self getLowTempFromData:i+1] location:[self getLocationFromData] week:[self getWeekFromData:i+1] date:[self getDateFromData:i+1] condition:[self getConditionFromData:i] percip:[self getPercip] weather:0];
+        [self.weatherArray addObject:model];
+    }
+}
+
 #pragma mark Private Method
 
-- (NSInteger)getCurrentTempFromData:(int)day
+- (NSInteger)getCurrentTemp
 {
     return [[currentWeatherinfo objectForKey:@"temp"] integerValue];
 }
@@ -132,7 +140,7 @@
     return [detailWeatherinfo objectForKey:@"city"];
 }
 
-- (NSString *)getPercipFromData:(int)day
+- (NSString *)getPercip
 {
     return [currentWeatherinfo objectForKey:@"SD"];
 }

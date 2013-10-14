@@ -26,5 +26,6 @@
 
 - (void)getWeatherWithSixDay;
 - (WeatherModel *)getModelOfDay:(int)index;
+- (void)addWeatherModelToArray;
 
 @end
