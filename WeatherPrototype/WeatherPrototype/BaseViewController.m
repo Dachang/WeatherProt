@@ -110,7 +110,7 @@
 - (void)moveViewToOriginalPosition
 {
     [UIView animateWithDuration:SLIDE_TIMING delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        _weatherVC.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width);
+        _weatherVC.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     } completion:^(BOOL finished){
         if(finished)
         {

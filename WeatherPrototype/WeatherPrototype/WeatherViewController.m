@@ -23,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self initWeather];
+        [self initUpcomingWeatherVC];
     }
     return self;
 }
@@ -33,7 +34,6 @@
 	[self setupBackgroundImage];
     [self setupWeatherInfo];
     [self setupLeftPanelButton];
-    [self initUpcomingWeatherVC];
 }
 
 #pragma mark - init weather object
