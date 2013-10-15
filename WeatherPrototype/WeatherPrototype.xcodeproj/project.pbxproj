@@ -63,6 +63,7 @@
 		13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */; };
 		13DCC238180D6C3A0018598E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DCC237180D6C3A0018598E /* SystemConfiguration.framework */; };
 		13DCC23B180D6ED90018598E /* CheckNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DCC23A180D6ED80018598E /* CheckNetworking.m */; };
+		13DCC23E180D7A220018598E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DCC23D180D7A220018598E /* MBProgressHUD.m */; };
 		13FAF00E1806D80000E1A9F8 /* motionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FAF00D1806D80000E1A9F8 /* motionBg@2x.png */; };
 		1C96FB89180569880058B5BC /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96FB88180569880058B5BC /* UILabel+Font.m */; };
 		1C96FB8C180569980058B5BC /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C96FB8B180569980058B5BC /* UIView+Frame.m */; };
@@ -145,6 +146,8 @@
 		13DCC237180D6C3A0018598E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		13DCC239180D6ED80018598E /* CheckNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckNetworking.h; sourceTree = "<group>"; };
 		13DCC23A180D6ED80018598E /* CheckNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNetworking.m; sourceTree = "<group>"; };
+		13DCC23C180D7A220018598E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		13DCC23D180D7A220018598E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		13FAF00D1806D80000E1A9F8 /* motionBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "motionBg@2x.png"; sourceTree = "<group>"; };
 		1C96FB87180569880058B5BC /* UILabel+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Font.h"; sourceTree = "<group>"; };
 		1C96FB88180569880058B5BC /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Font.m"; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 		13DCC232180D6A8C0018598E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				13DCC23C180D7A220018598E /* MBProgressHUD.h */,
+				13DCC23D180D7A220018598E /* MBProgressHUD.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				13BAFE7C18025F5400DB68FA /* WeatherModel.m in Sources */,
 				13BAFE7918025F1600DB68FA /* WeatherViewController.m in Sources */,
 				13BAFE5818025BF800DB68FA /* WeatherPrototype.xcdatamodeld in Sources */,
+				13DCC23E180D7A220018598E /* MBProgressHUD.m in Sources */,
 				1338C3F7180AF9840039FB15 /* LeftPanelViewController.m in Sources */,
 				13BAFE5118025BF800DB68FA /* main.m in Sources */,
 				1303F0C81804428F0046E720 /* UpcomingWeatherViewController.m in Sources */,

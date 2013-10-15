@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MBProgressHUD.h"
 
 #define WEATHER_VIEW_TAG 1
 #define LEFT_PANEL_VIEW_TAG 2

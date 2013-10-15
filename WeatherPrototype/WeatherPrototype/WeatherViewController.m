@@ -10,6 +10,8 @@
 #import "WeatherModel.h"
 #import "UILabel+Font.h"
 #import "UIView+Frame.h"
+#import "MBProgressHUD.h"
+#import "CheckNetworking.h"
 
 @interface WeatherViewController ()
 
@@ -337,6 +339,9 @@
 - (void)networkUnavailable
 {
     NSLog(@"none net");
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Please check your network";
 }
 
 @end
