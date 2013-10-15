@@ -310,7 +310,7 @@
     [weatherList addWeatherModelToArray];
     for (int i=1; i<7; ++i) {
         [weatherList getModelOfDay:i];
-        NSLog(@"%d currenttemp %@,weather %@",i,(WeatherModel *)[weatherList getModelOfDay:i]._currentTemperature,(WeatherModel *)[weatherList getModelOfDay:i]._weather);
+//        NSLog(@"%d currenttemp %@,weather %@",i,(WeatherModel *)[weatherList getModelOfDay:i]._currentTemperature,(WeatherModel *)[weatherList getModelOfDay:i]._weather);
     }
 }
 
