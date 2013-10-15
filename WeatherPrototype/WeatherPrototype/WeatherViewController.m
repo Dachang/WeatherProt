@@ -252,7 +252,7 @@
 {
     _upcomingWeatherVC = [[UpcomingWeatherViewController alloc] init];
     _upcomingWeatherVC.delegate = self;
-    _upcomingWeatherVC.view.frame = CGRectMake(0, self.view.bounds.size.height - _upcomingWeatherVC.view.bounds.size.height, _upcomingWeatherVC.view.bounds.size.width, _upcomingWeatherVC.view.bounds.size.height);
+    _upcomingWeatherVC.view.frame = CGRectMake(self.view.frame.origin.x, self.view.bounds.size.height - _upcomingWeatherVC.view.bounds.size.height, _upcomingWeatherVC.view.bounds.size.width, _upcomingWeatherVC.view.bounds.size.height);
     [self addChildViewController:_upcomingWeatherVC];
     [self.view addSubview:_upcomingWeatherVC.view];
     [_upcomingWeatherVC didMoveToParentViewController:self];

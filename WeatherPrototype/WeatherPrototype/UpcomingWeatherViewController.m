@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setBackgroundView];
     [self setWeatherImage];
     [self setWeekLabel];
     [self setHighLowTempLabel];
@@ -37,6 +38,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setBackgroundView
+{
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - delegate forward

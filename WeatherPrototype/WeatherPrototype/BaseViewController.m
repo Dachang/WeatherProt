@@ -63,6 +63,7 @@
         self.leftPanelVC = nil;
         _weatherVC.leftPanelButton.tag = 0;
         self.showingLeftPanelVC = NO;
+        [self showWeatherViewWithShadow:NO withOffset:0];
     }
 }
 
@@ -84,6 +85,7 @@
     }
     self.showingLeftPanelVC = YES;
     
+    [self showWeatherViewWithShadow:YES withOffset:-2];
     UIView *view = self.leftPanelVC.view;
     return view;
 }
@@ -194,6 +196,23 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+#pragma mark - weather VC shadow
+
+- (void)showWeatherViewWithShadow:(BOOL)value withOffset:(double)offset
+{
+    if(value)
+    {
+        [_weatherVC.view.layer setShadowColor:[UIColor blackColor].CGColor];
+        [_weatherVC.view.layer setShadowOpacity:0.25];
+        [_weatherVC.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+    }
+    else
+    {
+        [_weatherVC.view.layer setCornerRadius:0.0f];
+        [_weatherVC.view.layer setShadowOffset:CGSizeMake(offset, offset)];
+    }
 }
 
 - (void)didReceiveMemoryWarning
