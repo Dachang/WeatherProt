@@ -334,4 +334,9 @@
     }
 }
 
+- (void)networkUnavailable
+{
+    NSLog(@"none net");
+}
+
 @end

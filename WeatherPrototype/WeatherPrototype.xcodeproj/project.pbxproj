@@ -61,7 +61,6 @@
 		13BAFEB21802A9A200DB68FA /* percip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB01802A9A200DB68FA /* percip@2x.png */; };
 		13BAFEB31802A9A200DB68FA /* condition@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB11802A9A200DB68FA /* condition@2x.png */; };
 		13BAFEB61802AB8E00DB68FA /* Sunny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */; };
-		13DCC236180D6AA20018598E /* GCDiscreetNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DCC235180D6AA20018598E /* GCDiscreetNotificationView.m */; };
 		13DCC238180D6C3A0018598E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13DCC237180D6C3A0018598E /* SystemConfiguration.framework */; };
 		13DCC23B180D6ED90018598E /* CheckNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DCC23A180D6ED80018598E /* CheckNetworking.m */; };
 		13FAF00E1806D80000E1A9F8 /* motionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13FAF00D1806D80000E1A9F8 /* motionBg@2x.png */; };
@@ -143,8 +142,6 @@
 		13BAFEB01802A9A200DB68FA /* percip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "percip@2x.png"; sourceTree = "<group>"; };
 		13BAFEB11802A9A200DB68FA /* condition@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "condition@2x.png"; sourceTree = "<group>"; };
 		13BAFEB51802AB8E00DB68FA /* Sunny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sunny@2x.png"; sourceTree = "<group>"; };
-		13DCC234180D6AA20018598E /* GCDiscreetNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscreetNotificationView.h; sourceTree = "<group>"; };
-		13DCC235180D6AA20018598E /* GCDiscreetNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscreetNotificationView.m; sourceTree = "<group>"; };
 		13DCC237180D6C3A0018598E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		13DCC239180D6ED80018598E /* CheckNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckNetworking.h; sourceTree = "<group>"; };
 		13DCC23A180D6ED80018598E /* CheckNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNetworking.m; sourceTree = "<group>"; };
@@ -368,18 +365,8 @@
 		13DCC232180D6A8C0018598E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				13DCC233180D6AA20018598E /* GCDiscreetNotificationView */,
 			);
 			name = Lib;
-			sourceTree = "<group>";
-		};
-		13DCC233180D6AA20018598E /* GCDiscreetNotificationView */ = {
-			isa = PBXGroup;
-			children = (
-				13DCC234180D6AA20018598E /* GCDiscreetNotificationView.h */,
-				13DCC235180D6AA20018598E /* GCDiscreetNotificationView.m */,
-			);
-			path = GCDiscreetNotificationView;
 			sourceTree = "<group>";
 		};
 		1C96FB86180569690058B5BC /* Category */ = {
@@ -527,7 +514,6 @@
 				1C96FB8C180569980058B5BC /* UIView+Frame.m in Sources */,
 				1338C3F4180AF9740039FB15 /* BaseViewController.m in Sources */,
 				13DCC23B180D6ED90018598E /* CheckNetworking.m in Sources */,
-				13DCC236180D6AA20018598E /* GCDiscreetNotificationView.m in Sources */,
 				1CE91D4518083B1300FE0B46 /* WeatherModelList.m in Sources */,
 				13BAFE5518025BF800DB68FA /* AppDelegate.m in Sources */,
 				1C96FB89180569880058B5BC /* UILabel+Font.m in Sources */,

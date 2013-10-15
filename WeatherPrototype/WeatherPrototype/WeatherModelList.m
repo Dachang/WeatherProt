@@ -7,6 +7,7 @@
 //
 
 #import "WeatherModelList.h"
+#import "CheckNetworking.h"
 
 #define kShowWeatherDayTime 6
 
@@ -51,42 +52,88 @@
         }
     }
     
-    //中国天气网解析地址；
-    NSString *detailPath = @"http://m.weather.com.cn/data/cityNumber.html";     //实时信息
-    NSString *currentPath =  @"http://www.weather.com.cn/data/sk/cityNumber.html";        //详细信息
-    //将城市代码替换到天气解析网址cityNumber 部分！
-    detailPath = [detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
-    currentPath = [currentPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+//    //中国天气网解析地址；
+//    NSString *detailPath = @"http://m.weather.com.cn/data/cityNumber.html";     //实时信息
+//    NSString *currentPath =  @"http://www.weather.com.cn/data/sk/cityNumber.html";        //详细信息
+//    //将城市代码替换到天气解析网址cityNumber 部分！
+//    detailPath = [detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+//    currentPath = [currentPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
     
-    dispatch_queue_t detailQueue = dispatch_queue_create("Load Detail Info", NULL);
-    dispatch_async(detailQueue, ^{
-        NSError *othererror;
-        NSURLResponse *response;
-        NSData *detailDataReply;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: detailPath]];
-        [request setHTTPMethod: @"GET"];
-        detailDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
-        
-        NSError *error;
-        NSDictionary *detailWeatherDic = [NSJSONSerialization JSONObjectWithData:detailDataReply options:NSJSONReadingMutableLeaves error:&error];
-        detailWeatherinfo = [detailWeatherDic objectForKey:@"weatherinfo"];
-        [self.delegate getDetailInfoFinished];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if ([CheckNetworking checkNetworkingIsAvailable])
+        {
+            //中国天气网解析地址；
+            NSString *detailPath = @"http://m.weather.com.cn/data/cityNumber.html";     //实时信息
+            NSString *currentPath =  @"http://www.weather.com.cn/data/sk/cityNumber.html";        //详细信息
+            //将城市代码替换到天气解析网址cityNumber 部分！
+            detailPath = [detailPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+            currentPath = [currentPath stringByReplacingOccurrencesOfString:@"cityNumber" withString:_intString];
+            
+            dispatch_queue_t detailQueue = dispatch_queue_create("Load Detail Info", NULL);
+            dispatch_async(detailQueue, ^{
+                NSError *othererror;
+                NSURLResponse *response;
+                NSData *detailDataReply;
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: detailPath]];
+                [request setHTTPMethod: @"GET"];
+                detailDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
+                
+                NSError *error;
+                NSDictionary *detailWeatherDic = [NSJSONSerialization JSONObjectWithData:detailDataReply options:NSJSONReadingMutableLeaves error:&error];
+                detailWeatherinfo = [detailWeatherDic objectForKey:@"weatherinfo"];
+                [self.delegate getDetailInfoFinished];
+            });
+            
+            dispatch_queue_t currentQueue = dispatch_queue_create("Load Current Info", NULL);
+            dispatch_async(currentQueue, ^{
+                NSError *othererror;
+                NSURLResponse *response;
+                NSData *currentDataReply;
+                NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: currentPath]];
+                [request setHTTPMethod: @"GET"];
+                currentDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
+                
+                NSError *error;
+                NSDictionary *currentWeatherDic = [NSJSONSerialization JSONObjectWithData:currentDataReply options:NSJSONReadingMutableLeaves error:&error];
+                currentWeatherinfo = [currentWeatherDic objectForKey:@"weatherinfo"];
+                [self.delegate getCurrentInfoFinished];
+            });
+        }
+        else
+        {
+            [_delegate networkUnavailable];
+        }
     });
     
-    dispatch_queue_t currentQueue = dispatch_queue_create("Load Current Info", NULL);
-    dispatch_async(currentQueue, ^{
-        NSError *othererror;
-        NSURLResponse *response;
-        NSData *currentDataReply;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: currentPath]];
-        [request setHTTPMethod: @"GET"];
-        currentDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
-        
-        NSError *error;
-        NSDictionary *currentWeatherDic = [NSJSONSerialization JSONObjectWithData:currentDataReply options:NSJSONReadingMutableLeaves error:&error];
-        currentWeatherinfo = [currentWeatherDic objectForKey:@"weatherinfo"];
-        [self.delegate getCurrentInfoFinished];
-    });
+//    dispatch_queue_t detailQueue = dispatch_queue_create("Load Detail Info", NULL);
+//    dispatch_async(detailQueue, ^{
+//        NSError *othererror;
+//        NSURLResponse *response;
+//        NSData *detailDataReply;
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: detailPath]];
+//        [request setHTTPMethod: @"GET"];
+//        detailDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
+//        
+//        NSError *error;
+//        NSDictionary *detailWeatherDic = [NSJSONSerialization JSONObjectWithData:detailDataReply options:NSJSONReadingMutableLeaves error:&error];
+//        detailWeatherinfo = [detailWeatherDic objectForKey:@"weatherinfo"];
+//        [self.delegate getDetailInfoFinished];
+//    });
+//    
+//    dispatch_queue_t currentQueue = dispatch_queue_create("Load Current Info", NULL);
+//    dispatch_async(currentQueue, ^{
+//        NSError *othererror;
+//        NSURLResponse *response;
+//        NSData *currentDataReply;
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString: currentPath]];
+//        [request setHTTPMethod: @"GET"];
+//        currentDataReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&othererror];
+//        
+//        NSError *error;
+//        NSDictionary *currentWeatherDic = [NSJSONSerialization JSONObjectWithData:currentDataReply options:NSJSONReadingMutableLeaves error:&error];
+//        currentWeatherinfo = [currentWeatherDic objectForKey:@"weatherinfo"];
+//        [self.delegate getCurrentInfoFinished];
+//    });
 }
 
 - (WeatherModel *)getModelOfDay:(int)index

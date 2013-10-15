@@ -7,7 +7,6 @@
 //
 
 #import "CheckNetworking.h"
-#import "GCDiscreetNotificationView.h"
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
@@ -16,7 +15,7 @@
 
 @implementation CheckNetworking
 
-+ (BOOL)checkNetworkingInView
++ (BOOL)checkNetworkingIsAvailable
 {
     // Create zero addy
     struct sockaddr_in zeroAddress;

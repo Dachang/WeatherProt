@@ -10,6 +10,6 @@
 
 @interface CheckNetworking : NSObject
 
-+ (BOOL)checkNetworkingInView;
++ (BOOL)checkNetworkingIsAvailable;
 
 @end
