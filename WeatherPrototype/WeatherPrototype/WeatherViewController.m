@@ -46,7 +46,20 @@
     
     weatherList = [[WeatherModelList alloc] init];
     weatherList.delegate = self;
-    [weatherList getWeatherWithLocation];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (![CheckNetworking checkNetworkingIsAvailable])
+        {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeCustomView;
+            hud.labelText = @"Please check your network";
+            self.view.userInteractionEnabled = NO;
+        }
+        else
+        {
+            [weatherList getWeatherWithLocation];
+        }
+    });
     
     _weatherArray = [[NSMutableArray alloc] init];
     
@@ -334,14 +347,6 @@
     if (currentInfoFinished && detailInfoFinished) {
         [self setWeatherInfo];
     }
-}
-
-- (void)networkUnavailable
-{
-    NSLog(@"none net");
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeCustomView;
-    hud.labelText = @"Please check your network";
 }
 
 @end

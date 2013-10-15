@@ -14,7 +14,6 @@
 @optional
 - (void)getCurrentInfoFinished;
 - (void)getDetailInfoFinished;
-- (void)networkUnavailable;
 
 @end
 
